@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:6666/messenger</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">qwerty</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.User"/>
+        <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.Message"/>
+        <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.ChatParticipant"/>
+        <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.Chat"/>
+        <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.Post"/>
+        <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.FriendRequest"/>
+        <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.Friendship"/>
+    </session-factory>
+</hibernate-configuration>

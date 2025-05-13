@@ -1,0 +1,56 @@
+version: '3.9'
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  cache:
+    driver: local
+  postgres_data:
+
+services:
+  app:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring_application
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .env
+
+  db:
+    image: 'postgres:13'
+    restart: always
+    container_name: db
+    networks:
+      - app-network
+    environment:
+      - POSTGRES_USER=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DATABASE}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7.2-rc-alpine
+    restart: always
+    container_name: redis
+    networks:
+      - app-network
+    ports:
+      - '6379:6379'
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_USER=${REDIS_USER}
+      - REDIS_USER_PASSWORD=${REDIS_USER_PASSWORD}
+    command: redis-server --save 20 1 --loglevel warning --requirepass $${REDIS_PASSWORD}
+    volumes:
+      - cache:/data

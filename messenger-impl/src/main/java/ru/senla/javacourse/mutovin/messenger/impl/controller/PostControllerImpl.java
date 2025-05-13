@@ -1,0 +1,173 @@
+package ru.senla.javacourse.mutovin.messenger.impl.controller;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
+import ru.senla.javacourse.mutovin.messenger.api.dto.PostDto;
+import ru.senla.javacourse.mutovin.messenger.api.dto.request.PostCreateRequest;
+import ru.senla.javacourse.mutovin.messenger.api.dto.request.PostUpdateRequest;
+import ru.senla.javacourse.mutovin.messenger.api.dto.response.ErrorResponse;
+import ru.senla.javacourse.mutovin.messenger.api.dto.response.SuccessResponse;
+import ru.senla.javacourse.mutovin.messenger.db.entity.Post;
+import ru.senla.javacourse.mutovin.messenger.impl.exception.PostException;
+import ru.senla.javacourse.mutovin.messenger.impl.mapper.PostMapper;
+import ru.senla.javacourse.mutovin.messenger.impl.service.PostService;
+import ru.senla.javacourse.mutovin.messenger.impl.service.UserService;
+
+import java.util.List;
+
+@Tag(name = "Посты", description = "API для управления постами")
+@RestController
+@RequestMapping("/api/posts")
+@RequiredArgsConstructor
+public class PostControllerImpl {
+
+    private final PostService postService;
+    private final UserService userService;
+    private final PostMapper postMapper;
+    private static final Logger logger = LoggerFactory.getLogger(PostControllerImpl.class);
+
+    @Operation(summary = "Создать пост", description = "Создает новый пост")
+    @ApiResponses({@ApiResponse(responseCode = "200", description = "Пост успешно создан"),@ApiResponse(responseCode = "400", description = "Некорректные данные запроса"),@ApiResponse(responseCode = "401", description = "Пользователь не авторизован")})
+    @PostMapping
+    public ResponseEntity<?> createPost(@AuthenticationPrincipal UserDetails userDetails,@RequestBody PostCreateRequest request) {
+        try {
+            if (request==null || request.getContent()==null || request.getContent().isBlank()) {
+                return ResponseEntity.badRequest().body(ErrorResponse.builder().success(false).status(HttpStatus.BAD_REQUEST.value()).message("Содержимое поста не может быть пустым").build());
+            }
+
+            Long userId = userService.findByUsername(userDetails.getUsername()).getId();
+            PostDto post = postService.createPost(request,userId);
+            return ResponseEntity.ok(SuccessResponse.builder().success(true).message("Пост успешно создан").data(post).build());
+        } catch (RuntimeException e) {
+            logger.error("Ошибка при создании поста: {}",e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ErrorResponse.builder().success(false).status(HttpStatus.BAD_REQUEST.value()).message("Ошибка при создании поста").details(e.getMessage()).build());
+        }
+    }
+
+    @Operation(summary = "Получить пост по ID", description = "Возвращает пост по его идентификатору")
+    @ApiResponses({@ApiResponse(responseCode = "200", description = "Пост успешно получен"),@ApiResponse(responseCode = "404", description = "Пост не найден"),@ApiResponse(responseCode = "403", description = "Доступ запрещен")})
+    @GetMapping("/{postId}")
+    public ResponseEntity<?> getPostById(@AuthenticationPrincipal UserDetails userDetails,@Parameter(description = "ID поста") @PathVariable Long postId) {
+        try {
+            Long userId = userService.findByUsername(userDetails.getUsername()).getId();
+            PostDto post = postService.findPostById(postId,userId);
+
+            return ResponseEntity.ok(SuccessResponse.builder().success(true).message("Пост успешно получен").data(post).build());
+        } catch (PostException.PostNotFoundException e) {
+            logger.error("Пост не найден: {}",e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ErrorResponse.builder().success(false).status(HttpStatus.NOT_FOUND.value()).message(e.getMessage()).build());
+        } catch (PostException.PostAccessDeniedException e) {
+            logger.error("Доступ запрещен: {}",e.getMessage());
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ErrorResponse.builder().success(false).status(HttpStatus.FORBIDDEN.value()).message(e.getMessage()).build());
+        }
+    }
+
+    @Operation(summary = "Получить посты пользователя", description = "Возвращает все посты указанного пользователя")
+    @ApiResponses({@ApiResponse(responseCode = "200", description = "Список постов успешно получен"),@ApiResponse(responseCode = "404", description = "Пользователь не найден")})
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<?> getPostsByUser(@AuthenticationPrincipal UserDetails userDetails,@Parameter(description = "ID пользователя") @PathVariable Long userId) {
+        try {
+            userService.findByUsername(userDetails.getUsername());
+            List<PostDto> posts = postService.findPostByCreatorId(userId);
+
+            return ResponseEntity.ok(SuccessResponse.builder().success(true).message("Посты пользователя успешно получены").data(posts).build());
+        } catch (RuntimeException e) {
+            logger.error("Ошибка при получении постов пользователя: {}",e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ErrorResponse.builder().success(false).status(HttpStatus.BAD_REQUEST.value()).message("Ошибка при получении постов пользователя").details(e.getMessage()).build());
+        }
+    }
+
+    @Operation(summary = "Получить все посты", description = "Возвращает все посты в системе")
+    @ApiResponses({@ApiResponse(responseCode = "200", description = "Список постов успешно получен")})
+    @GetMapping
+    public ResponseEntity<?> getAllPosts(@AuthenticationPrincipal UserDetails userDetails) {
+        try {
+            userService.findByUsername(userDetails.getUsername());
+            List<PostDto> posts = postService.findAllPosts();
+
+            return ResponseEntity.ok(SuccessResponse.builder().success(true).message("Все посты успешно получены").data(posts).build());
+        } catch (RuntimeException e) {
+            logger.error("Ошибка при получении всех постов: {}",e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ErrorResponse.builder().success(false).status(HttpStatus.INTERNAL_SERVER_ERROR.value()).message("Ошибка при получении всех постов").details(e.getMessage()).build());
+        }
+    }
+
+    @Operation(summary = "Обновить пост", description = "Обновляет содержимое поста")
+    @ApiResponses({@ApiResponse(responseCode = "200", description = "Пост успешно обновлен"),
+            @ApiResponse(responseCode = "400", description = "Некорректные данные запроса"),
+            @ApiResponse(responseCode = "403", description = "Доступ запрещен"),
+            @ApiResponse(responseCode = "404", description = "Пост не найден")})
+    @PutMapping("/{postId}")
+    public ResponseEntity<?> updatePost(@AuthenticationPrincipal UserDetails userDetails,@Parameter(description = "ID поста") @PathVariable Long postId,@RequestBody PostUpdateRequest request) {
+        try {
+            if (request==null || request.getContent()==null || request.getContent().isBlank()) {
+                return ResponseEntity.badRequest().body(ErrorResponse.builder().success(false).status(HttpStatus.BAD_REQUEST.value()).message("Содержимое поста не может быть пустым").build());
+            }
+
+            Long userId = userService.findByUsername(userDetails.getUsername()).getId();
+            PostDto updatedPost = postService.updatePost(request,userId);
+
+            return ResponseEntity.ok(SuccessResponse.builder().success(true).message("Пост успешно обновлен").data(updatedPost).build());
+        } catch (PostException.PostNotFoundException e) {
+            logger.error("Пост не найден: {}",e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ErrorResponse.builder().success(false).status(HttpStatus.NOT_FOUND.value()).message(e.getMessage()).build());
+        } catch (PostException.PostNotEditableException | PostException.PostAccessDeniedException e) {
+            logger.error("Ошибка доступа: {}",e.getMessage());
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ErrorResponse.builder().success(false).status(HttpStatus.FORBIDDEN.value()).message(e.getMessage()).build());
+        }
+    }
+
+    @Operation(summary = "Удалить пост", description = "Удаляет пост по его идентификатору")
+    @ApiResponses({@ApiResponse(responseCode = "204", description = "Пост успешно удален"),@ApiResponse(responseCode = "403", description = "Доступ запрещен"),@ApiResponse(responseCode = "404", description = "Пост не найден")})
+    @DeleteMapping("/{postId}")
+    public ResponseEntity<?> deletePost(@AuthenticationPrincipal UserDetails userDetails,@Parameter(description = "ID поста") @PathVariable Long postId) {
+        try {
+            Long userId = userService.findByUsername(userDetails.getUsername()).getId();
+            postService.deletePostById(postId,userId);
+
+            return ResponseEntity.noContent().build();
+        } catch (PostException.PostNotFoundException e) {
+            logger.error("Пост не найден: {}",e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ErrorResponse.builder().success(false).status(HttpStatus.NOT_FOUND.value()).message(e.getMessage()).build());
+        } catch (PostException.PostAccessDeniedException e) {
+            logger.error("Доступ запрещен: {}",e.getMessage());
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ErrorResponse.builder().success(false).status(HttpStatus.FORBIDDEN.value()).message(e.getMessage()).build());
+        }
+    }
+    @Operation(summary = "Удалить пост (администратор)",
+            description = "Удаляет пост по его ID (только для администраторов)")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "Пост успешно удален"),
+            @ApiResponse(responseCode = "403", description = "Доступ запрещен"),
+            @ApiResponse(responseCode = "404", description = "Пост не найден")
+    })
+    @DeleteMapping("/admin/{postId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deletePostAsAdmin(
+            @Parameter(description = "ID поста") @PathVariable Long postId) {
+        try {
+            postService.deletePostAsAdmin(postId);
+            return ResponseEntity.noContent().build();
+        } catch (PostException.PostNotFoundException e) {
+            logger.error("Пост не найден: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                    ErrorResponse.builder()
+                            .success(false)
+                            .status(HttpStatus.NOT_FOUND.value())
+                            .message(e.getMessage())
+                            .build());
+        }
+    }
+}
