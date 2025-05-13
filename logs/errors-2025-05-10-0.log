@@ -1,0 +1,36 @@
+2025-05-10 00:04:14 [http-nio-8080-exec-1] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "chats" нарушает ограничение внешнего ключа "fk_chat" таблицы "chat_participants"
+  Подробности: На ключ (id)=(2) всё ещё есть ссылки в таблице "chat_participants".
+  Местонахождение: Файл ri_triggers.c, Процедура: ri_ReportViolation, Строка: 2633
+  SQLState сервера: 23503
+2025-05-10 00:05:33 [http-nio-8080-exec-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "chats" нарушает ограничение внешнего ключа "fk_chat" таблицы "chat_participants"
+  Подробности: На ключ (id)=(3) всё ещё есть ссылки в таблице "chat_participants".
+  Местонахождение: Файл ri_triggers.c, Процедура: ri_ReportViolation, Строка: 2633
+  SQLState сервера: 23503
+2025-05-10 00:12:22 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "chats" нарушает ограничение внешнего ключа "fk_chat" таблицы "chat_participants"
+  Подробности: На ключ (id)=(3) всё ещё есть ссылки в таблице "chat_participants".
+  Местонахождение: Файл ri_triggers.c, Процедура: ri_ReportViolation, Строка: 2633
+  SQLState сервера: 23503
+2025-05-10 00:12:25 [http-nio-8080-exec-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "chats" нарушает ограничение внешнего ключа "fk_chat" таблицы "chat_participants"
+  Подробности: На ключ (id)=(3) всё ещё есть ссылки в таблице "chat_participants".
+  Местонахождение: Файл ri_triggers.c, Процедура: ri_ReportViolation, Строка: 2633
+  SQLState сервера: 23503
+2025-05-10 00:12:30 [http-nio-8080-exec-6] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "chats" нарушает ограничение внешнего ключа "fk_chat" таблицы "chat_participants"
+  Подробности: На ключ (id)=(2) всё ещё есть ссылки в таблице "chat_participants".
+  Местонахождение: Файл ri_triggers.c, Процедура: ri_ReportViolation, Строка: 2633
+  SQLState сервера: 23503
+2025-05-10 00:19:46 [http-nio-8080-exec-1] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "chats" нарушает ограничение внешнего ключа "fk_chat" таблицы "chat_participants"
+  Подробности: На ключ (id)=(2) всё ещё есть ссылки в таблице "chat_participants".
+  Местонахождение: Файл ri_triggers.c, Процедура: ri_ReportViolation, Строка: 2633
+  SQLState сервера: 23503
+2025-05-10 00:22:55 [http-nio-8080-exec-1] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "chats" нарушает ограничение внешнего ключа "fk_chat" таблицы "chat_participants"
+  Подробности: На ключ (id)=(2) всё ещё есть ссылки в таблице "chat_participants".
+  Местонахождение: Файл ri_triggers.c, Процедура: ri_ReportViolation, Строка: 2633
+  SQLState сервера: 23503
+2025-05-10 00:26:27 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "chats" нарушает ограничение внешнего ключа "fk_chat" таблицы "chat_participants"
+  Подробности: На ключ (id)=(2) всё ещё есть ссылки в таблице "chat_participants".
+  Местонахождение: Файл ri_triggers.c, Процедура: ri_ReportViolation, Строка: 2633
+  SQLState сервера: 23503
+2025-05-10 00:26:37 [http-nio-8080-exec-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "chats" нарушает ограничение внешнего ключа "fk_chat" таблицы "chat_participants"
+  Подробности: На ключ (id)=(1) всё ещё есть ссылки в таблице "chat_participants".
+  Местонахождение: Файл ri_triggers.c, Процедура: ri_ReportViolation, Строка: 2633
+  SQLState сервера: 23503

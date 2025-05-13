@@ -1,0 +1,1 @@
+2025-05-05 13:06:06 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]

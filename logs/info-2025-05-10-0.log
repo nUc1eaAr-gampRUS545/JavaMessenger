@@ -1,0 +1,155 @@
+2025-05-10 00:01:54 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-10 00:03:55 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-10 00:03:55 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 18456 (C:\Users\tanki\pet-projects\Messenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\Messenger)
+2025-05-10 00:03:55 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-10 00:03:59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-10 00:03:59 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:03:59 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-10 00:03:59 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-10 00:03:59 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-10 00:03:59 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3791 ms
+2025-05-10 00:04:00 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-10 00:04:00 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-10 00:04:00 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-10 00:04:00 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-10 00:04:00 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-10 00:04:00 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-10 00:04:00 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-10 00:04:06 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-10 00:04:09 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-10 00:04:10 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@59c2bf78, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@44f8d884, org.springframework.security.web.context.SecurityContextHolderFilter@1391d95f, org.springframework.security.web.header.HeaderWriterFilter@7b1a9ab3, org.springframework.web.filter.CorsFilter@65d3e2ba, org.springframework.security.web.authentication.logout.LogoutFilter@155cf9f6, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@1415f18d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ef03158, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@258f97f8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f9f1886, org.springframework.security.web.session.SessionManagementFilter@3a4d0ca2, org.springframework.security.web.access.ExceptionTranslationFilter@3cb4f1a6, org.springframework.security.web.access.intercept.AuthorizationFilter@403ba39f]
+2025-05-10 00:04:10 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:04:10 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-10 00:04:11 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 16.182 seconds (process running for 18.782)
+2025-05-10 00:04:11 [RMI TCP Connection(8)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-10 00:04:11 [RMI TCP Connection(8)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-10 00:04:11 [RMI TCP Connection(8)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-05-10 00:11:43 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-10 00:12:00 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-10 00:12:00 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 26848 (C:\Users\tanki\pet-projects\Messenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\Messenger)
+2025-05-10 00:12:00 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-10 00:12:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-10 00:12:04 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:12:04 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-10 00:12:04 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-10 00:12:04 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-10 00:12:04 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4054 ms
+2025-05-10 00:12:05 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-10 00:12:05 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-10 00:12:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-10 00:12:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-10 00:12:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-10 00:12:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-10 00:12:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-10 00:12:09 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-10 00:12:10 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-10 00:12:10 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7f59f4e4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5295a774, org.springframework.security.web.context.SecurityContextHolderFilter@35bcf3a6, org.springframework.security.web.header.HeaderWriterFilter@4c32aa7e, org.springframework.web.filter.CorsFilter@3e09067, org.springframework.security.web.authentication.logout.LogoutFilter@7473cfe2, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@3fe59f84, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b5df8b7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1651bd68, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7a7f5c44, org.springframework.security.web.session.SessionManagementFilter@7b1a9ab3, org.springframework.security.web.access.ExceptionTranslationFilter@4578d654, org.springframework.security.web.access.intercept.AuthorizationFilter@718b9d56]
+2025-05-10 00:12:11 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:12:11 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-10 00:12:11 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 11.469 seconds (process running for 13.588)
+2025-05-10 00:12:12 [RMI TCP Connection(7)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-10 00:12:12 [RMI TCP Connection(7)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-10 00:12:12 [RMI TCP Connection(7)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2025-05-10 00:19:09 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-10 00:19:09 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 22360 (C:\Users\tanki\pet-projects\Messenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\Messenger)
+2025-05-10 00:19:09 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-10 00:19:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-10 00:19:13 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:19:13 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-10 00:19:13 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-10 00:19:13 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-10 00:19:13 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3886 ms
+2025-05-10 00:19:13 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-10 00:19:14 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-10 00:19:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-10 00:19:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-10 00:19:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-10 00:19:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-10 00:19:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-10 00:19:17 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-10 00:19:18 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-10 00:19:18 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@31e3b882, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b592f17, org.springframework.security.web.context.SecurityContextHolderFilter@1b079e81, org.springframework.security.web.header.HeaderWriterFilter@699fe19f, org.springframework.web.filter.CorsFilter@3884e858, org.springframework.security.web.authentication.logout.LogoutFilter@5c2f5dc, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@4986b0ea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2387e60b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@41acf2f1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46c7c593, org.springframework.security.web.session.SessionManagementFilter@712eb075, org.springframework.security.web.access.ExceptionTranslationFilter@5a097a83, org.springframework.security.web.access.intercept.AuthorizationFilter@5d28e108]
+2025-05-10 00:19:19 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:19:19 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-10 00:19:19 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 11.329 seconds (process running for 13.541)
+2025-05-10 00:19:44 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-10 00:19:44 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-10 00:19:44 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-05-10 00:22:38 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-10 00:22:38 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 25528 (C:\Users\tanki\pet-projects\Messenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\Messenger)
+2025-05-10 00:22:38 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-10 00:22:43 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-10 00:22:43 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:22:43 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-10 00:22:43 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-10 00:22:44 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-10 00:22:44 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5290 ms
+2025-05-10 00:22:44 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-10 00:22:45 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-10 00:22:45 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-10 00:22:45 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-10 00:22:45 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-10 00:22:45 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-10 00:22:45 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-10 00:22:49 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-10 00:22:50 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-10 00:22:51 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7f59f4e4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5295a774, org.springframework.security.web.context.SecurityContextHolderFilter@35bcf3a6, org.springframework.security.web.header.HeaderWriterFilter@4c32aa7e, org.springframework.web.filter.CorsFilter@3e09067, org.springframework.security.web.authentication.logout.LogoutFilter@7473cfe2, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@4df8443f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b5df8b7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1651bd68, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7a7f5c44, org.springframework.security.web.session.SessionManagementFilter@7b1a9ab3, org.springframework.security.web.access.ExceptionTranslationFilter@4578d654, org.springframework.security.web.access.intercept.AuthorizationFilter@718b9d56]
+2025-05-10 00:22:52 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:22:52 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-10 00:22:52 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 14.925 seconds (process running for 16.888)
+2025-05-10 00:22:53 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-10 00:22:53 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-10 00:22:53 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2025-05-10 00:25:25 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-10 00:25:38 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-10 00:25:39 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 27616 (C:\Users\tanki\pet-projects\Messenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\Messenger)
+2025-05-10 00:25:39 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-10 00:25:43 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-10 00:25:43 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:25:43 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-10 00:25:43 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-10 00:25:43 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-10 00:25:43 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4261 ms
+2025-05-10 00:25:43 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-10 00:25:44 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-10 00:25:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-10 00:25:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-10 00:25:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-10 00:25:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-10 00:25:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-10 00:25:47 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-10 00:25:48 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-10 00:25:49 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@61bfd7da, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6179af64, org.springframework.security.web.context.SecurityContextHolderFilter@6114902c, org.springframework.security.web.header.HeaderWriterFilter@416bff93, org.springframework.web.filter.CorsFilter@193f5509, org.springframework.security.web.authentication.logout.LogoutFilter@520e6089, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@3816efab, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@217abcc9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3123ac1a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@475a8415, org.springframework.security.web.session.SessionManagementFilter@467625e3, org.springframework.security.web.access.ExceptionTranslationFilter@2b8a11d7, org.springframework.security.web.access.intercept.AuthorizationFilter@1f13eabb]
+2025-05-10 00:25:49 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:25:49 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-10 00:25:49 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 11.924 seconds (process running for 14.653)
+2025-05-10 00:25:50 [RMI TCP Connection(5)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-10 00:25:50 [RMI TCP Connection(5)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-10 00:25:50 [RMI TCP Connection(5)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-05-10 00:29:40 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-10 00:29:51 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-10 00:29:51 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 28328 (C:\Users\tanki\pet-projects\Messenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\Messenger)
+2025-05-10 00:29:51 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-10 00:29:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-10 00:29:57 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:29:57 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-10 00:29:57 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-10 00:29:58 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-10 00:29:58 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6354 ms
+2025-05-10 00:30:00 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-10 00:30:01 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-10 00:30:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-10 00:30:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-10 00:30:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-10 00:30:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-10 00:30:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-10 00:30:06 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-10 00:30:07 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-10 00:30:09 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7ca0aa55, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51a8aed8, org.springframework.security.web.context.SecurityContextHolderFilter@63541960, org.springframework.security.web.header.HeaderWriterFilter@617d697, org.springframework.web.filter.CorsFilter@1f13eabb, org.springframework.security.web.authentication.logout.LogoutFilter@35e0d91e, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@1d160161, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@467625e3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@513cd96f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@cfe881a, org.springframework.security.web.session.SessionManagementFilter@577b2c5f, org.springframework.security.web.access.ExceptionTranslationFilter@4bacabc4, org.springframework.security.web.access.intercept.AuthorizationFilter@d140627]
+2025-05-10 00:30:12 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-10 00:30:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-10 00:30:12 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 21.924 seconds (process running for 23.981)
+2025-05-10 00:30:13 [RMI TCP Connection(14)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-10 00:30:13 [RMI TCP Connection(14)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-10 00:30:13 [RMI TCP Connection(14)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-05-10 09:07:49 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]

@@ -1,0 +1,59 @@
+2025-05-09 21:37:15 [http-nio-8080-exec-6] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001
+2025-05-09 21:37:15 [http-nio-8080-exec-6] ERROR r.s.j.m.m.i.c.AuthControllerImpl - Ошибка при создании пользователя: could not execute statement [ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001] [insert into users (email,firstname,lastname,password,phoneNumber,role,username) values (?,?,?,?,?,?,?) returning id]
+2025-05-09 21:41:43 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001
+2025-05-09 21:41:43 [http-nio-8080-exec-2] ERROR r.s.j.m.m.i.c.AuthControllerImpl - Ошибка при создании пользователя: could not execute statement [ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001] [insert into users (email,firstname,lastname,password,phoneNumber,role,username) values (?,?,?,?,?,?,?) returning id]
+2025-05-09 21:42:44 [http-nio-8080-exec-7] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001
+2025-05-09 21:42:44 [http-nio-8080-exec-7] ERROR r.s.j.m.m.i.c.AuthControllerImpl - Ошибка при создании пользователя: could not execute statement [ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001] [insert into users (email,firstname,lastname,password,phoneNumber,role,username) values (?,?,?,?,?,?,?) returning id]
+2025-05-09 21:43:10 [http-nio-8080-exec-5] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001
+2025-05-09 21:43:10 [http-nio-8080-exec-5] ERROR r.s.j.m.m.i.c.AuthControllerImpl - Ошибка при создании пользователя: could not execute statement [ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001] [insert into users (email,firstname,lastname,password,phoneNumber,role,username) values (?,?,?,?,?,?,?) returning id]
+2025-05-09 21:43:37 [http-nio-8080-exec-8] ERROR r.s.j.m.m.i.c.AuthControllerImpl - Ошибка при создании пользователя: Пользователь с таким именем уже существует
+2025-05-09 21:43:45 [http-nio-8080-exec-10] ERROR r.s.j.m.m.i.c.AuthControllerImpl - Ошибка при создании пользователя: Пользователь с таким именем уже существует
+2025-05-09 22:09:30 [http-nio-8080-exec-5] ERROR r.s.j.m.m.i.c.ChatControllerImpl - Некорректные данные запроса: org.hibernate.query.PathException: Plural path 'ru.senla.javacourse.mutovin.messenger.db.entity.Chat(c).participants' refers to a collection and so element attribute 'size' may not be referenced directly (use element() function)
+2025-05-09 22:30:59 [http-nio-8080-exec-1] ERROR r.s.j.m.m.i.c.ChatControllerImpl - Некорректные данные запроса: org.hibernate.query.PathException: Plural path 'ru.senla.javacourse.mutovin.messenger.db.entity.Chat(c).participants' refers to a collection and so element attribute 'size' may not be referenced directly (use element() function)
+2025-05-09 22:31:26 [http-nio-8080-exec-5] ERROR r.s.j.m.m.i.c.ChatControllerImpl - Некорректные данные запроса: org.hibernate.query.PathException: Plural path 'ru.senla.javacourse.mutovin.messenger.db.entity.Chat(c).participants' refers to a collection and so element attribute 'size' may not be referenced directly (use element() function)
+2025-05-09 22:44:48 [http-nio-8080-exec-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: отношение "chats" не существует
+  Позиция: 95
+  Местонахождение: Файл parse_relation.c, Процедура: parserOpenTable, Строка: 1452
+  SQLState сервера: 42P01
+2025-05-09 22:52:24 [http-nio-8080-exec-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: отношение "chats" не существует
+  Позиция: 95
+  Местонахождение: Файл parse_relation.c, Процедура: parserOpenTable, Строка: 1452
+  SQLState сервера: 42P01
+2025-05-09 22:52:37 [http-nio-8080-exec-7] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: отношение "chats" не существует
+  Позиция: 95
+  Местонахождение: Файл parse_relation.c, Процедура: parserOpenTable, Строка: 1452
+  SQLState сервера: 42P01
+2025-05-09 22:52:37 [http-nio-8080-exec-7] ERROR r.s.j.m.m.i.c.ChatControllerImpl - Некорректные данные запроса: JDBC exception executing SQL [select c1_0.id,c1_0.created_at,c1_0.creator_id,c1_0.is_private,c1_0.name,c1_0.updated_at from chats c1_0 where c1_0.is_private=true and c1_0.id in (select cp1_0.chat_id from chat_participants cp1_0 where cp1_0.user_id=?) and c1_0.id in (select cp2_0.chat_id from chat_participants cp2_0 where cp2_0.user_id=?) and (select count(cp3_0.id) from chat_participants cp3_0 where cp3_0.chat_id=c1_0.id and cp3_0.left_at is null)=2] [ОШИБКА: отношение "chats" не существует
+  Позиция: 95
+  Местонахождение: Файл parse_relation.c, Процедура: parserOpenTable, Строка: 1452
+  SQLState сервера: 42P01] [n/a]
+2025-05-09 22:54:06 [http-nio-8080-exec-3] ERROR r.s.j.m.m.i.c.ChatControllerImpl - Некорректные данные запроса: Cannot invoke "ru.senla.javacourse.mutovin.messenger.impl.mapper.UserMapper.map(Object)" because "this.userMapper" is null
+2025-05-09 22:56:45 [http-nio-8080-exec-2] ERROR r.s.j.m.m.i.c.ChatControllerImpl - Некорректные данные запроса: Приватный чат между пользователями 1 и 2 уже существует
+2025-05-09 23:33:16 [http-nio-8080-exec-6] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001
+2025-05-09 23:33:16 [http-nio-8080-exec-6] ERROR r.s.j.m.m.i.c.AuthControllerImpl - Ошибка при создании пользователя: could not execute statement [ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001] [insert into users (email,firstname,lastname,password,phoneNumber,role,username) values (?,?,?,?,?,?,?) returning id]
+2025-05-09 23:33:30 [http-nio-8080-exec-8] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001
+2025-05-09 23:33:30 [http-nio-8080-exec-8] ERROR r.s.j.m.m.i.c.AuthControllerImpl - Ошибка при создании пользователя: could not execute statement [ОШИБКА: значение не умещается в тип character varying(11)
+  Местонахождение: Файл varchar.c, Процедура: varchar, Строка: 641
+  SQLState сервера: 22001] [insert into users (email,firstname,lastname,password,phoneNumber,role,username) values (?,?,?,?,?,?,?) returning id]
