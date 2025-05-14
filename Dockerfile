@@ -1,6 +1,6 @@
-FROM openjdk:jbr-17
-COPY ../target/.*jar app.jar
+FROM openjdk:17-jdk
+COPY JavaMessenger.jar JavaMessenger.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "JavaMessenger.jar"]

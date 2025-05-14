@@ -15,6 +15,7 @@ import ru.senla.javacourse.mutovin.messenger.api.dto.request.SignInRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.SignUpRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.ErrorResponse;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.SuccessResponse;
+//import ru.senla.javacourse.mutovin.messenger.impl.kafka.KafkaProducer;
 import ru.senla.javacourse.mutovin.messenger.impl.service.AuthenticationService;
 
 
@@ -24,11 +25,13 @@ import ru.senla.javacourse.mutovin.messenger.impl.service.AuthenticationService;
 @Tag(name = "Аутентификация")
 public class AuthControllerImpl implements AuthController {
     private final AuthenticationService authenticationService;
+//    private final KafkaProducer kafkaProducer;
     private static final Logger logger = LoggerFactory.getLogger(AuthControllerImpl.class);
 
     @Autowired
     public AuthControllerImpl(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
+//        this.kafkaProducer = kafkaProducer;
     }
     /**
      * @param request
@@ -55,6 +58,7 @@ public class AuthControllerImpl implements AuthController {
     @PostMapping("/sign-in")
     public ResponseEntity<?> signIn(@RequestBody @Valid SignInRequest request) {
         try {
+//            kafkaProducer.send("notification",request.getUsername());
             return ResponseEntity.status(HttpStatus.CREATED).body(SuccessResponse.builder()
                     .success(true).message("Аунтефикация прошла успешно")
                     .data(authenticationService.signIn(request)).build());
