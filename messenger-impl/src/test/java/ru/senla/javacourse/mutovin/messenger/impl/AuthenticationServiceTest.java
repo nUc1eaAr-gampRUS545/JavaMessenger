@@ -1,4 +1,4 @@
-package ru.senla.javacourse.mutovin.messenger.impl.service.test;
+package ru.senla.javacourse.mutovin.messenger.impl;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

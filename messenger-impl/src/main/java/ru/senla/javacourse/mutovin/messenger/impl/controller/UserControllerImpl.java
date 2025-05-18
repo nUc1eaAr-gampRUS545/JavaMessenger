@@ -1,5 +1,7 @@
 package ru.senla.javacourse.mutovin.messenger.impl.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import ru.senla.javacourse.mutovin.messenger.api.controller.UserController;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -7,11 +9,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.senla.javacourse.mutovin.messenger.api.dto.UserDto;
-import ru.senla.javacourse.mutovin.messenger.api.dto.response.ErrorResponse;
+import ru.senla.javacourse.mutovin.messenger.api.dto.request.UserUpdateRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.SuccessResponse;
 import ru.senla.javacourse.mutovin.messenger.impl.service.UserService;
 
@@ -29,83 +30,72 @@ public class UserControllerImpl implements UserController {
     @GetMapping("/{id}")
     @Operation(summary = "Получить пользователя по ID")
     public ResponseEntity<?> getUserById(@PathVariable Long id) {
-        try {
-            UserDto user = userService.findByIdWithFriends(id);
-            return ResponseEntity.ok(user);
-        } catch (Exception e) {
-            logger.error("Error getting user by id: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.NOT_FOUND.value())
-                            .message("Пользователь не найден")
-                            .details(e.getMessage())
-                            .build());
-        }
+        UserDto user = userService.findByIdWithFriendsAndPosts(id);
+        return ResponseEntity.ok(user);
+    }
+
+    @Override
+    @GetMapping("/filter")
+    @Operation(summary = "Получить пользователя по имени, фамилии, полу и возрасту")
+    public ResponseEntity<?> filterUsers(
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName,
+            @RequestParam(required = false) Integer age,
+            @RequestParam(required = false) String gender
+    )
+    {return ResponseEntity.ok(userService.filterUsers(firstName,lastName,age,gender));}
+
+    @Override
+    @GetMapping
+    @Operation(summary = "Получить пользователя по ID")
+    public ResponseEntity<?> getProfile(@AuthenticationPrincipal UserDetails userDetails) {
+        Long userId = userService.findByUsername(userDetails.getUsername()).getId();
+        UserDto user = userService.findByIdWithFriendsAndPosts(userId);
+        return ResponseEntity.ok(user);
     }
 
     @Override
     @GetMapping("/all")
     @Operation(summary = "Получить всех пользователей")
     public ResponseEntity<?> getAllUsers() {
-        try {
-            List<UserDto> users = userService.findAll();
-            return ResponseEntity.ok(users);
-        } catch (Exception e) {
-            logger.error("Error getting all users: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                            .message("Ошибка при получении списка пользователей")
-                            .details(e.getMessage())
-                            .build());
-        }
+        List<UserDto> users = userService.findAll();
+        return ResponseEntity.ok(users);
+
     }
 
 
     @Override
-    @DeleteMapping("/{userId}/friend/{friendId}")
+    @DeleteMapping("/friend/{friendId}")
     @Operation(summary = "Удалить друга")
-    public ResponseEntity<?> removeFriend(@PathVariable Long userId, @PathVariable Long friendId) {
-        try {
-            userService.removeFriend(userId, friendId);
-            return ResponseEntity.ok(SuccessResponse.builder()
-                    .success(true)
-                    .message("Друг успешно удален")
-                    .build());
-        } catch (Exception e) {
-            logger.error("Error removing friend: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                            .message("Ошибка при удалении друга")
-                            .details(e.getMessage())
-                            .build());
-        }
+    public ResponseEntity<?> removeFriend(
+            @AuthenticationPrincipal UserDetails userDetails,
+            @PathVariable Long friendId) {
+        Long userId = userService.findByUsername(userDetails.getUsername()).getId();
+        userService.removeFriend(userId,friendId);
+        return ResponseEntity.ok(SuccessResponse.builder().success(true).message("Друг успешно удален")
+                .build());
     }
 
     @Override
     @PostMapping("/admin")
     @Operation(summary = "Получить права администратора")
     public ResponseEntity<?> getAdmin() {
-        try {
-            userService.getAdmin();
-            return ResponseEntity.ok(SuccessResponse.builder()
-                    .success(true)
-                    .message("Права администратора получены")
-                    .build());
-        } catch (Exception e) {
-            logger.error("Error getting admin rights: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                            .message("Ошибка при получении прав администратора")
-                            .details(e.getMessage())
-                            .build());
-        }
+        userService.getAdmin();
+        return ResponseEntity.ok(SuccessResponse.builder().success(true)
+                .message("Права администратора получены").build());
+
+    }
+
+    @Override
+    @PutMapping("/me")
+    public ResponseEntity<?> updateMyProfile(
+            @AuthenticationPrincipal UserDetails userDetails,
+            @RequestBody UserUpdateRequest request
+    ) {
+        Long userId = userService.findByUsername(userDetails.getUsername()).getId();
+        UserDto updated = userService.updateUserProfile(userId,request);
+        return ResponseEntity.ok(SuccessResponse.builder().success(true)
+                .message("Профиль успешно обновлен").data(updated).build());
     }
 }
 

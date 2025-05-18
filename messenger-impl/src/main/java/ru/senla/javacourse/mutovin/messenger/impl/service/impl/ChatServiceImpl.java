@@ -128,7 +128,6 @@ public class ChatServiceImpl implements ChatService {
                     if (Objects.equals(user.getId(),userId) && chat.getIsPrivate())
                         chatRepository.deleteById(chatId);});
     }
-
     @Override
     @Transactional
     public ChatDto addParticipant(Long chatId,Long userId) {
@@ -141,6 +140,10 @@ public class ChatServiceImpl implements ChatService {
         if (chatParticipantRepository.findByChatIdAndUserId(chatId,userId).isPresent()) {
             throw new ChatException("User is already a participant in this chat");
         }
+
+//        if(chat.getIsPrivate()){
+//            throw new ChatException.UserAccessDeniedException(chatId,userId);
+//        }
 
         ChatParticipant participant = new ChatParticipant();
         participant.setChat(chat);

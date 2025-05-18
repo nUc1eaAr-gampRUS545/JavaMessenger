@@ -53,7 +53,6 @@ public class FriendRequestServiceImpl implements FriendRequestService {
         request.setStatus(FriendRequestStatus.ACCEPTED);
         request.setUpdatedAt(LocalDateTime.now());
 
-        // Создаем запись о дружбе для обоих пользователей
         userService.addFriend(request.getSender().getId(),request.getRecipient().getId());
         userService.addFriend(request.getRecipient().getId(),request.getSender().getId());
 

@@ -36,7 +36,7 @@ public class JwtServiceImpl implements JwtService {
             claims.put("email",customUserDetails.getEmail());
             claims.put("role",customUserDetails.getRole());
         }
-        return generateToken(claims,userDetails);
+        return generateToken(claims, userDetails);
     }
 
     public boolean isTokenValid(String token,UserDetails userDetails) {
@@ -81,4 +81,3 @@ public class JwtServiceImpl implements JwtService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 }
-

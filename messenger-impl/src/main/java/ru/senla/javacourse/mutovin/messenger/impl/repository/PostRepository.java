@@ -10,5 +10,4 @@ public interface PostRepository extends GenericRepository<Post, Long> {
     Optional<List<Post>> findByCreatorId(Long senderId);
     Optional<Post> update(Post post);
 
-
 }

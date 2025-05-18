@@ -1,6 +1,8 @@
 package ru.senla.javacourse.mutovin.messenger.db.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,8 +14,8 @@ import java.util.*;
 
 @Entity
 @Builder(toBuilder = true)
-@Data
 @NoArgsConstructor
+@Data
 @AllArgsConstructor
 @Table(name = "users")
 public class User implements UserDetails, Serializable {
@@ -31,6 +33,13 @@ public class User implements UserDetails, Serializable {
 
     @Column(name = "lastname", nullable = false, length = 25)
     private String lastname;
+
+    @Column(name = "age", nullable = false)
+    private Integer age;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender", nullable = false)
+    private Gender gender;
 
     @Column(name = "email", nullable = false, length = 35)
     private String email;

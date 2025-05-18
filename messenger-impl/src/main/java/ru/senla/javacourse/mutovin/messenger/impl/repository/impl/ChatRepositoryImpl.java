@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import ru.senla.javacourse.mutovin.messenger.db.entity.Chat;
+import ru.senla.javacourse.mutovin.messenger.db.entity.Community;
 import ru.senla.javacourse.mutovin.messenger.impl.repository.ChatRepository;
 
 import java.util.HashSet;
@@ -28,24 +29,30 @@ public class ChatRepositoryImpl implements ChatRepository {
     public Optional<Chat> save(Chat chat) {
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.persist(chat);
+            Chat mergedChat = (Chat) session.merge(chat);
             transaction.commit();
+            return Optional.ofNullable(mergedChat);
         }
-        return Optional.ofNullable(chat);
+
     }
 
     @Override
     public Optional<Chat> findById(Long primaryKey) {
-        return Optional.empty();
+        try (Session session = getSession()) {
+            Chat chat = session.get(Chat.class,primaryKey);
+            return Optional.of(chat);
+        }
+
     }
 
     @Override
-    public Optional<Chat> findChatById(Long id, Long userId) {
+    public Optional<Chat> findChatById(Long id,Long userId) {
         try (Session session = getSession()) {
-            String hql = "FROM Chat c JOIN FETCH c.participants p WHERE c.id = :id AND p.id = :userId"; ;
-            Query<Chat> query = session.createQuery(hql, Chat.class)
-                    .setParameter("userId", userId)
-            .setParameter("id", id);
+            String hql = "FROM Chat c JOIN FETCH c.participants p WHERE c.id = :id AND p.id = :userId";
+            ;
+            Query<Chat> query = session.createQuery(hql,Chat.class)
+                    .setParameter("userId",userId)
+                    .setParameter("id",id);
             return Optional.ofNullable((Chat) query);
 
         }
@@ -62,19 +69,19 @@ public class ChatRepositoryImpl implements ChatRepository {
     public void deleteById(Long id) {
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
-            
+
             session.createNativeQuery("DELETE FROM messages WHERE chat_id = :chatId")
-                    .setParameter("chatId", id)
+                    .setParameter("chatId",id)
                     .executeUpdate();
 
             session.createNativeQuery("DELETE FROM chat_participants WHERE chat_id = :chatId")
-                    .setParameter("chatId", id)
+                    .setParameter("chatId",id)
                     .executeUpdate();
 
             session.createNativeQuery("DELETE FROM chats WHERE id = :chatId")
-                    .setParameter("chatId", id)
+                    .setParameter("chatId",id)
                     .executeUpdate();
-            
+
             transaction.commit();
         }
     }

@@ -3,6 +3,7 @@ package ru.senla.javacourse.mutovin.messenger.api.dto;
 import lombok.Data;
 
 import ru.senla.javacourse.mutovin.messenger.db.entity.MessageStatus;
+import ru.senla.javacourse.mutovin.messenger.db.entity.PostStatus;
 
 import java.time.LocalDateTime;
 
@@ -15,7 +16,7 @@ public class PostDto {
     private String content;
     private LocalDateTime createdAt;
     private LocalDateTime readAt;
-    private MessageStatus status;
+    private PostStatus status;
 
 }
 

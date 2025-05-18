@@ -1,12 +1,15 @@
 package ru.senla.javacourse.mutovin.messenger.api.dto.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.senla.javacourse.mutovin.messenger.db.entity.Gender;
+import ru.senla.javacourse.mutovin.messenger.db.entity.Role;
+import ru.senla.javacourse.mutovin.messenger.db.entity.User;
+
+import java.util.HashSet;
 
 @Data
 @AllArgsConstructor
@@ -24,17 +27,27 @@ public class SignUpRequest {
     @NotBlank(message = "Фамилия пользователя не может быть пустыми")
     private String lastname;
 
+    @Schema(description = "Пол пользователя", example = "MALE/FEMALE")
+    @NotBlank(message = "Пол пользователя не может быть пустым")
+    @Pattern(regexp = "MALE|FEMALE", message = "Пол пользователя должен быть MALE или FEMALE")
+    private String gender;
+
+    @Schema(description = "Возраст пользователя", example = "20")
+    @Min(value = 8, message = "Возраст пользователя должен быть от 8 лет")
+    @Max(value = 140, message = "Возраст пользователя должен быть до 140 лет")
+    private Integer age;
+
     @Schema(description = "Телефон пользователя", example = "+7(999)999-99-99")
     @Size(min = 8, max = 50, message = "Телефон пользователя должно содержать от 5 до 50 символов")
     @NotBlank(message = "Телефон пользователя не может быть пустыми")
     private String phonenumber;
 
-    @Schema(description = "Логин пользователя", example = "JonSnow2028")
+    @Schema(description = "Логин пользователя", example = "JonSnow2017")
     @Size(min = 5, max = 50, message = "Логин пользователя должно содержать от 5 до 50 символов")
     @NotBlank(message = "Логин пользователя не может быть пустыми")
     private String username;
 
-    @Schema(description = "Адрес электронной почты", example = "jondoe@gmail.com")
+    @Schema(description = "Адрес электронной почты", example = "jonSnow@gmail.com")
     @Size(min = 5, max = 255, message = "Адрес электронной почты должен содержать от 5 до 255 символов")
     @NotBlank(message = "Адрес электронной почты не может быть пустыми")
     @Email(message = "Email адрес должен быть в формате user@example.com")
@@ -43,4 +56,20 @@ public class SignUpRequest {
     @Schema(description = "Пароль", example = "my_1secret1_password")
     @Size(min=8,max = 255, message = "Длина пароля должна быть не более 255 символов")
     private String password;
+
+    public User toEntity(){
+        User user = User.builder()
+                .firstname(firstname)
+                .lastname(lastname)
+                .phoneNumber(phonenumber)
+                .username(username)
+                .email(email)
+                .age(age)
+                .gender(Gender.valueOf(gender))
+                .role(Role.ROLE_USER)
+//                .communities(new HashSet<>())
+                .build();
+        return user;
+    }
+
 }

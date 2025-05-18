@@ -6,15 +6,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
-import ru.senla.javacourse.mutovin.messenger.db.entity.Friendship;
-import ru.senla.javacourse.mutovin.messenger.impl.repository.FriendshipRepository;
+import ru.senla.javacourse.mutovin.messenger.db.entity.Subscribe;
+import ru.senla.javacourse.mutovin.messenger.impl.repository.SubscribeRepository;
 
 import java.util.List;
 import java.util.Optional;
-
 @Repository
 @RequiredArgsConstructor
-public class FriendshipRepositoryImpl implements FriendshipRepository {
+public class SubscribeRepositoryImpl implements SubscribeRepository {
 
     private final SessionFactory sessionFactory;
 
@@ -23,55 +22,42 @@ public class FriendshipRepositoryImpl implements FriendshipRepository {
     }
 
     @Override
-    public List<Friendship> findByUserId(Long userId) {
+    public List<Subscribe> findByUserId(Long userId) {
         try (Session session = getSession()) {
-            Query<Friendship> query = session.createQuery(
-                    "SELECT f FROM Friendship f WHERE f.user.id = :userId", Friendship.class);
+            Query<Subscribe> query = session.createQuery(
+                    "SELECT c FROM Subscribe c WHERE c.member.id = :userId", Subscribe.class);
             query.setParameter("userId", userId);
             return query.list();
         }
     }
 
     @Override
-    public Optional<Friendship> findByUserIdAndFriendId(Long userId, Long friendId) {
-        try (Session session = getSession()) {
-            Query<Friendship> query = session.createQuery(
-                    "SELECT f FROM Friendship f WHERE f.user.id = :userId AND f.friend.id = :friendId", 
-                    Friendship.class);
-            query.setParameter("userId", userId);
-            query.setParameter("friendId", friendId);
-            List<Friendship> results = query.list();
-            return results.isEmpty() ? Optional.empty() : Optional.of(results.get(0));
-        }
-    }
-
-    @Override
-    public void deleteByUserIdAndFriendId(Long userId, Long friendId) {
+    public void deleteByUserIdAndCommunityId(Long userId,Long communityId) {
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
             Query<?> query = session.createQuery(
-                    "DELETE FROM Friendship f WHERE f.user.id = :userId AND f.friend.id = :friendId");
+                    "DELETE FROM Subscribe s WHERE s.member.id = :userId AND s.community.id = :communityId");
             query.setParameter("userId", userId);
-            query.setParameter("friendId", friendId);
+            query.setParameter("communityId", communityId);
             query.executeUpdate();
             transaction.commit();
         }
     }
 
     @Override
-    public Optional<Friendship> save(Friendship entity) {
+    public Optional<Subscribe> save(Subscribe entity) {
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.merge(entity);
+            Subscribe result = session.merge(entity);
             transaction.commit();
-            return Optional.of(entity);
+            return Optional.of(result);
         }
     }
 
     @Override
-    public Optional<Friendship> findById(Long id) {
+    public Optional<Subscribe> findById(Long id) {
         try (Session session = getSession()) {
-            return Optional.ofNullable(session.get(Friendship.class, id));
+            return Optional.ofNullable(session.get(Subscribe.class, id));
         }
     }
 
@@ -79,18 +65,18 @@ public class FriendshipRepositoryImpl implements FriendshipRepository {
     public void deleteById(Long id) {
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
-            Friendship friendship = findById(id)
-                    .orElseThrow(() -> new IllegalArgumentException("Friendship not found"));
-            session.delete(friendship);
+            Subscribe subscribe = findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("Подписка не найдена"));
+            session.remove(subscribe);
             transaction.commit();
         }
     }
 
     @Override
-    public Optional<List<Friendship>> findAll() {
+    public Optional<List<Subscribe>> findAll() {
         try (Session session = getSession()) {
-            Query<Friendship> query = session.createQuery(
-                    "SELECT f FROM Friendship f", Friendship.class);
+            Query<Subscribe> query = session.createQuery(
+                    "SELECT s FROM Subscribe s", Subscribe.class);
             return Optional.of(query.list());
         }
     }

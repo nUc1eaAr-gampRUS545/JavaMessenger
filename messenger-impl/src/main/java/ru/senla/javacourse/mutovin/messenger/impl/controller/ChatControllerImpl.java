@@ -15,11 +15,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import ru.senla.javacourse.mutovin.messenger.api.dto.ChatDto;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.ChatCreateRequest;
-import ru.senla.javacourse.mutovin.messenger.api.dto.request.PrivateChatCreateRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.ErrorResponse;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.SuccessResponse;
-import ru.senla.javacourse.mutovin.messenger.impl.exception.ChatException;
-import ru.senla.javacourse.mutovin.messenger.impl.mapper.ChatMapper;
 import ru.senla.javacourse.mutovin.messenger.impl.service.ChatService;
 import ru.senla.javacourse.mutovin.messenger.impl.service.UserService;
 
@@ -33,7 +30,6 @@ public class ChatControllerImpl {
 
     private final ChatService chatService;
     private final UserService userService;
-    private final ChatMapper chatMapper;
     private static final Logger logger = LoggerFactory.getLogger(ChatControllerImpl.class);
 
     @Operation(summary = "Создать чат", description = "Создает новый групповой чат")
@@ -47,29 +43,20 @@ public class ChatControllerImpl {
     public ResponseEntity<?> createChat(
             @AuthenticationPrincipal UserDetails userDetails,
             @RequestBody ChatCreateRequest request) {
-        try {
-            Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
 
-            if (request == null) {
-                return ResponseEntity.badRequest().body(
-                        ErrorResponse.builder().success(false).status(HttpStatus.BAD_REQUEST.value()).message("Запрос не может быть пустым").build());
-            }
-
-            ChatDto chat = chatService.createChat(request.getName(),currentUserId,request.getParticipantIds()
-            );
-
-            return ResponseEntity.ok(
-                    SuccessResponse.builder().success(true).message("Чат успешно создан").data(chat).build());
-
-        } catch (ChatException e) {
-            logger.error("Ошибка при создании чата: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.BAD_REQUEST.value()).message(e.getMessage()).build());
-        } catch (Exception e) {
-            logger.error("Внутренняя ошибка при создании чата: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.INTERNAL_SERVER_ERROR.value()).message("Внутренняя ошибка сервера").build());
+        Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+        if (request==null) {
+            return ResponseEntity.badRequest().body(
+                    ErrorResponse.builder().success(false).status(HttpStatus.BAD_REQUEST.value()).message("Запрос не может быть пустым").build());
         }
+
+        ChatDto chat = chatService.createChat(request.getName(),currentUserId,request.getParticipantIds()
+        );
+
+        return ResponseEntity.ok(
+                SuccessResponse.builder().success(true).message("Чат успешно создан").data(chat).build());
+
+
     }
 
     @Operation(summary = "Создать приватный чат", description = "Создает приватный чат между двумя пользователями")
@@ -78,32 +65,37 @@ public class ChatControllerImpl {
             @ApiResponse(responseCode = "400", description = "Некорректные данные запроса"),
             @ApiResponse(responseCode = "401", description = "Пользователь не авторизован")
     })
-    @PostMapping("/private")
+    @PostMapping("/private/{invitedPersonId}")
     public ResponseEntity<?> createPrivateChat(
             @AuthenticationPrincipal UserDetails userDetails,
-            @RequestBody PrivateChatCreateRequest request) {
-        try {
-            Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+            @Parameter(description = "ID пользователя, приглашенного в приватный чат")
+            @PathVariable Long invitedPersonId) {
+        Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+        ChatDto chat = chatService.createPrivateChat(currentUserId,invitedPersonId);
+        return ResponseEntity.ok(
+                SuccessResponse.builder().success(true).message("Приватный чат успешно создан").data(chat).build());
 
-            if (request == null || request.getSecondUserId() == null) {
-                return ResponseEntity.badRequest().body(
-                        ErrorResponse.builder().success(false).status(HttpStatus.BAD_REQUEST.value()).message("ID второго пользователя не может быть пустым").build());
-            }
+    }
 
-            ChatDto chat = chatService.createPrivateChat(currentUserId, request.getSecondUserId());
+    @Operation(summary = "Получить информацию о приватном чате", description = "Получает информацию о приватном чате по ID")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Информация о чате успешно получена"),
+            @ApiResponse(responseCode = "404", description = "Чат не найден"),
+            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+    })
+    @GetMapping("/private/{userId2}")
+    public ResponseEntity<?> getPrivateChat(
+            @AuthenticationPrincipal UserDetails userDetails,
+            @Parameter(description = "ID второго пользователя") @PathVariable Long userId2) {
 
-            return ResponseEntity.ok(
-                    SuccessResponse.builder().success(true).message("Приватный чат успешно создан").data(chat).build());
-
-        } catch (ChatException.PrivateChatAlreadyExistsException e) {
-            logger.error("Приватный чат уже существует: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.CONFLICT.value()).message(e.getMessage()).build());
-        } catch (ChatException e) {
-            logger.error("Ошибка при создании приватного чата: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.BAD_REQUEST.value()).message(e.getMessage()).build());
-        }
+        Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+        ChatDto chat = chatService.getPrivateChat(currentUserId, userId2);
+        return ResponseEntity.ok(
+                SuccessResponse.builder()
+                        .success(true)
+                        .message("Информация о чате успешно получена")
+                        .data(chat)
+                        .build());
     }
 
     @Operation(summary = "Удалить чат", description = "Удаляет чат по его ID")
@@ -116,19 +108,10 @@ public class ChatControllerImpl {
     public ResponseEntity<?> deleteChat(
             @AuthenticationPrincipal UserDetails userDetails,
             @Parameter(description = "ID чата") @PathVariable Long chatId) {
-        try {
-            Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
-            chatService.deleteChat(chatId, currentUserId);
-            return ResponseEntity.noContent().build();
-        } catch (ChatException.ChatNotFoundException e) {
-            logger.error("Чат не найден: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.NOT_FOUND.value()).message(e.getMessage()).build());
-        } catch (ChatException.UserAccessDeniedException e) {
-            logger.error("Доступ запрещен: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.FORBIDDEN.value()).message(e.getMessage()).build());
-        }
+
+        Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+        chatService.deleteChat(chatId,currentUserId);
+        return ResponseEntity.noContent().build();
     }
 
     @Operation(summary = "Добавить участника", description = "Добавляет пользователя в чат")
@@ -142,23 +125,11 @@ public class ChatControllerImpl {
     public ResponseEntity<?> addParticipant(
             @AuthenticationPrincipal UserDetails userDetails,
             @Parameter(description = "ID чата") @PathVariable Long chatId) {
-        try {
-            Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+        Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+        ChatDto chat = chatService.addParticipant(chatId,currentUserId);
+        return ResponseEntity.ok(
+                SuccessResponse.builder().success(true).message("Участник успешно добавлен").data(chat).build());
 
-            ChatDto chat = chatService.addParticipant(chatId, currentUserId);
-
-            return ResponseEntity.ok(
-                    SuccessResponse.builder().success(true).message("Участник успешно добавлен").data(chat).build());
-
-        } catch (ChatException.ChatNotFoundException e) {
-            logger.error("Чат не найден: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.NOT_FOUND.value()).message(e.getMessage()).build());
-        } catch (ChatException.UserAccessDeniedException e) {
-            logger.error("Доступ запрещен: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.FORBIDDEN.value()).message(e.getMessage()).build());
-        }
     }
 
     @Operation(summary = "Удалить участника", description = "Удаляет пользователя из чата")
@@ -171,23 +142,12 @@ public class ChatControllerImpl {
     public ResponseEntity<?> removeParticipant(
             @AuthenticationPrincipal UserDetails userDetails,
             @Parameter(description = "ID чата") @PathVariable Long chatId) {
-        try {
-            Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
 
-            ChatDto chat = chatService.removeParticipant(chatId, currentUserId);
+        Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+        ChatDto chat = chatService.removeParticipant(chatId,currentUserId);
+        return ResponseEntity.ok(
+                SuccessResponse.builder().success(true).message("Участник успешно удален").data(chat).build());
 
-            return ResponseEntity.ok(
-                    SuccessResponse.builder().success(true).message("Участник успешно удален").data(chat).build());
-
-        } catch (ChatException.ChatNotFoundException e) {
-            logger.error("Чат не найден: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.NOT_FOUND.value()).message(e.getMessage()).build());
-        } catch (ChatException.UserAccessDeniedException e) {
-            logger.error("Доступ запрещен: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.FORBIDDEN.value()).message(e.getMessage()).build());
-        }
     }
 
     @Operation(summary = "Назначить администратора", description = "Назначает пользователя администратором чата")
@@ -200,23 +160,12 @@ public class ChatControllerImpl {
     public ResponseEntity<?> makeAdmin(
             @AuthenticationPrincipal UserDetails userDetails,
             @Parameter(description = "ID чата") @PathVariable Long chatId) {
-        try {
-            Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
 
-            ChatDto chat = chatService.makeAdmin(chatId,  currentUserId);
+        Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+        ChatDto chat = chatService.makeAdmin(chatId,currentUserId);
+        return ResponseEntity.ok(
+                SuccessResponse.builder().success(true).message("Администратор успешно назначен").data(chat).build());
 
-            return ResponseEntity.ok(
-                    SuccessResponse.builder().success(true).message("Администратор успешно назначен").data(chat).build());
-
-        } catch (ChatException.ChatNotFoundException e) {
-            logger.error("Чат не найден: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.NOT_FOUND.value()).message(e.getMessage()).build());
-        } catch (ChatException.UserAccessDeniedException e) {
-            logger.error("Доступ запрещен: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.FORBIDDEN.value()).message(e.getMessage()).build());
-        }
     }
 
     @Operation(summary = "Получить чаты пользователя", description = "Возвращает список всех чатов пользователя")
@@ -228,19 +177,12 @@ public class ChatControllerImpl {
     public ResponseEntity<?> getUserChats(
             @AuthenticationPrincipal UserDetails userDetails,
             @Parameter(description = "ID пользователя") @PathVariable Long userId) {
-        try {
-            userService.findByUsername(userDetails.getUsername()); // Проверка авторизации
 
-            List<ChatDto> chats = chatService.getUserChats(userId);
+        userService.findByUsername(userDetails.getUsername());
+        List<ChatDto> chats = chatService.getUserChats(userId);
+        return ResponseEntity.ok(
+                SuccessResponse.builder().success(true).message("Список чатов успешно получен").data(chats).build());
 
-            return ResponseEntity.ok(
-                    SuccessResponse.builder().success(true).message("Список чатов успешно получен").data(chats).build());
-
-        } catch (Exception e) {
-            logger.error("Ошибка при получении чатов пользователя: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.INTERNAL_SERVER_ERROR.value()).message("Ошибка при получении чатов пользователя").build());
-        }
     }
 
     @Operation(summary = "Получить чат по ID", description = "Возвращает информацию о чате по его ID")
@@ -253,22 +195,10 @@ public class ChatControllerImpl {
     public ResponseEntity<?> getChatById(
             @AuthenticationPrincipal UserDetails userDetails,
             @Parameter(description = "ID чата") @PathVariable Long chatId) {
-        try {
-            Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+        Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
+        ChatDto chat = chatService.getChatById(chatId,currentUserId);
+        return ResponseEntity.ok(
+                SuccessResponse.builder().success(true).message("Чат успешно получен").data(chat).build());
 
-            ChatDto chat = chatService.getChatById(chatId, currentUserId);
-
-            return ResponseEntity.ok(
-                    SuccessResponse.builder().success(true).message("Чат успешно получен").data(chat).build());
-
-        } catch (ChatException.ChatNotFoundException e) {
-            logger.error("Чат не найден: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.NOT_FOUND.value()).message(e.getMessage()).build());
-        } catch (ChatException.UserAccessDeniedException e) {
-            logger.error("Доступ запрещен: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(
-                    ErrorResponse.builder().success(false).status(HttpStatus.FORBIDDEN.value()).message(e.getMessage()).build());
-        }
     }
 }

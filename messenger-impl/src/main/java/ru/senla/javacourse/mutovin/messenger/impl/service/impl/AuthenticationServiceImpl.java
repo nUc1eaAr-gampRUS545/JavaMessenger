@@ -1,6 +1,5 @@
 package ru.senla.javacourse.mutovin.messenger.impl.service.impl;
 
-
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -38,16 +37,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
      */
     @Transactional
     public JwtAuthenticationResponse signUp(SignUpRequest request) {
-
-        var user = User.builder()
-                .firstname(request.getFirstname())
-                .lastname(request.getLastname())
-                .phoneNumber(request.getPhonenumber())
-                .username(request.getUsername())
-                .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.ROLE_USER)
-                .build();
+        User user = request.toEntity();
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         User createUser = userService.create(user);
 

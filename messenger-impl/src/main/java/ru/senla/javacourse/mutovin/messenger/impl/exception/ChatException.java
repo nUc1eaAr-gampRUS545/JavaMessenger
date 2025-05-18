@@ -39,8 +39,8 @@ public class ChatException extends RuntimeException {
         }
     }
     public static class UserAccessDeniedException extends ChatException {
-        public UserAccessDeniedException(Long postId, Long userId) {
-            super("Пользователь с id " + userId + " не имеет доступа к посту " + postId);
+        public UserAccessDeniedException(Long chatId, Long userId) {
+            super("Пользователь с id " + userId + " не имеет доступа к чату " + chatId);
         }
     }
 } 

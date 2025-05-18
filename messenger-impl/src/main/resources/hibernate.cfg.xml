@@ -7,10 +7,14 @@
     <session-factory>
         <!-- JDBC Database connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://db:9900/messenger</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:6666/messenger</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">qwerty</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.current_session_context_class">thread</property>
         <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.User"/>
         <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.Message"/>
         <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.ChatParticipant"/>
@@ -18,5 +22,8 @@
         <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.Post"/>
         <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.FriendRequest"/>
         <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.Friendship"/>
+        <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.Community"/>
+        <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.Subscribe"/>
+        <mapping class="ru.senla.javacourse.mutovin.messenger.db.entity.PostCommunity"/>
     </session-factory>
 </hibernate-configuration>

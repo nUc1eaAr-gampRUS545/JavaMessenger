@@ -2,6 +2,7 @@ package ru.senla.javacourse.mutovin.messenger.impl.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.senla.javacourse.mutovin.messenger.api.dto.PostDto;
@@ -9,6 +10,7 @@ import ru.senla.javacourse.mutovin.messenger.api.dto.request.PostCreateRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.PostUpdateRequest;
 import ru.senla.javacourse.mutovin.messenger.db.entity.MessageStatus;
 import ru.senla.javacourse.mutovin.messenger.db.entity.Post;
+import ru.senla.javacourse.mutovin.messenger.db.entity.PostStatus;
 import ru.senla.javacourse.mutovin.messenger.db.entity.User;
 import ru.senla.javacourse.mutovin.messenger.impl.exception.PostException;
 import ru.senla.javacourse.mutovin.messenger.impl.mapper.PostMapper;
@@ -29,6 +31,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional(readOnly = true)
+    @Cacheable(value = "PostService::findPostByCreatorId",key = "#creatorId")
     public List<PostDto> findPostByCreatorId(Long creatorId) {
 
         List<Post> posts = postRepository.findByCreatorId(creatorId)
@@ -47,7 +50,7 @@ public class PostServiceImpl implements PostService {
 
         validatePostAccess(post,currentUserId);
 
-        if (post.getStatus() == MessageStatus.DELETED || post.getStatus() == MessageStatus.DELETED_BY_ADMIN) {
+        if (post.getStatus() == PostStatus.ARCHIVED || post.getStatus() == PostStatus.DELETED_BY_ADMIN) {
             throw new PostException.PostNotEditableException(request.getPostId());
         }
 
@@ -56,7 +59,7 @@ public class PostServiceImpl implements PostService {
         }
 
         post.setContent(request.getContent().trim());
-        post.setStatus(MessageStatus.EDITED);
+        post.setStatus(PostStatus.EDITED);
         post.setUpdatedAt(LocalDateTime.now());
 
         Post result = postRepository.update(post)
@@ -72,14 +75,8 @@ public class PostServiceImpl implements PostService {
         if (request==null || request.getContent()==null || request.getTitle()==null) {
             throw new PostException.EmptyPostContentException();
         }
-
         User creator = userService.findById(creatorId);
-
-        Post post = new Post();
-        post.setContent(request.getContent());
-        post.setCreatedAt(LocalDateTime.now());
-        post.setTitle(request.getTitle());
-        post.setStatus(MessageStatus.SENT);
+        Post post = request.toEntity();
         post.setCreator(creator);
 
         Post result = postRepository.save(post)
@@ -95,7 +92,7 @@ public class PostServiceImpl implements PostService {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new PostException.PostNotFoundException(postId));
 
-        if (post.getStatus()==MessageStatus.DELETED || post.getStatus() == MessageStatus.DELETED_BY_ADMIN)
+        if (post.getStatus()==PostStatus.ARCHIVED || post.getStatus() == PostStatus.DELETED_BY_ADMIN)
             throw new PostException.PostNotDeletableException(postId);
 
         validatePostAccess(post,currentUserId);
@@ -119,11 +116,11 @@ public class PostServiceImpl implements PostService {
 
         validatePostAccess(post,currentUserId);
 
-        if (post.getStatus()==MessageStatus.DELETED || post.getStatus() == MessageStatus.DELETED_BY_ADMIN)
+        if (post.getStatus()==PostStatus.ARCHIVED || post.getStatus() == PostStatus.DELETED_BY_ADMIN)
             throw new PostException.PostNotDeletableException(postId);
 
 
-        post.setStatus(MessageStatus.DELETED);
+        post.setStatus(PostStatus.ARCHIVED);
         post.setUpdatedAt(LocalDateTime.now());
         postRepository.update(post);
     }
@@ -140,7 +137,7 @@ public class PostServiceImpl implements PostService {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new PostException.PostNotFoundException(postId));
 
-        post.setStatus(MessageStatus.DELETED_BY_ADMIN);
+        post.setStatus(PostStatus.DELETED_BY_ADMIN);
         post.setUpdatedAt(LocalDateTime.now());
         postRepository.update(post);
 

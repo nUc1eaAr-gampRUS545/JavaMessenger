@@ -43,37 +43,15 @@ public class FriendRequestControllerImpl implements FriendRequestController {
     })
     @PostMapping("/send/{receiverId}")
     public ResponseEntity<?> sendRequest(
-            @AuthenticationPrincipal UserDetails userDetails,
-            @PathVariable Long receiverId) {
-        try {
-            Long senderId = userService.findByUsername(userDetails.getUsername()).getId();
-            FriendRequestDto request = friendRequestService.sendRequest(senderId, receiverId);
+            @AuthenticationPrincipal UserDetails userDetails,@PathVariable Long receiverId) {
+        Long senderId = userService.findByUsername(userDetails.getUsername()).getId();
+        FriendRequestDto request = friendRequestService.sendRequest(senderId,receiverId);
+        return ResponseEntity.ok(
+                SuccessResponse.builder().success(true).message("Запрос в друзья успешно отправлен")
+                        .data(request).build());
 
-            return ResponseEntity.ok(
-                    SuccessResponse.builder()
-                            .success(true)
-                            .message("Запрос в друзья успешно отправлен")
-                            .data(request)
-                            .build());
-        } catch (FriendRequestException e) {
-            logger.error("Ошибка при отправке запроса в друзья: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(
-                    ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.CONFLICT.value())
-                            .message(e.getMessage())
-                            .build());
-        } catch (RuntimeException e) {
-            logger.error("Ошибка при отправке запроса: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                    ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.BAD_REQUEST.value())
-                            .message("Ошибка при отправке запроса в друзья")
-                            .details(e.getMessage())
-                            .build());
-        }
     }
+
     @Operation(summary = "Принять запрос в друзья",
             description = "Принимает входящий запрос на дружбу")
     @ApiResponses({
@@ -83,23 +61,13 @@ public class FriendRequestControllerImpl implements FriendRequestController {
     })
     @PostMapping("/{requestId}/accept")
     public ResponseEntity<?> acceptRequest(@PathVariable Long requestId) {
-        try {
-            FriendRequestDto request = friendRequestService.acceptRequest(requestId);
-            return ResponseEntity.ok(
-                    SuccessResponse.builder()
-                            .success(true)
-                            .message("Запрос в друзья успешно принят")
-                            .data(request)
-                            .build());
-        } catch (FriendRequestException e) {
-            logger.error("Ошибка при принятии запроса: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                    ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.NOT_FOUND.value())
-                            .message(e.getMessage())
-                            .build());
-        }
+        FriendRequestDto request = friendRequestService.acceptRequest(requestId);
+        return ResponseEntity.ok(
+                SuccessResponse.builder()
+                        .success(true)
+                        .message("Запрос в друзья успешно принят")
+                        .data(request)
+                        .build());
     }
 
     @Operation(summary = "Отклонить запрос в друзья",
@@ -113,23 +81,11 @@ public class FriendRequestControllerImpl implements FriendRequestController {
     public ResponseEntity<?> rejectRequest(
             @Parameter(description = "ID запроса на дружбу", required = true)
             @PathVariable Long requestId) {
-        try {
-            FriendRequestDto request = friendRequestService.rejectRequest(requestId);
-            return ResponseEntity.ok(
-                    SuccessResponse.builder()
-                            .success(true)
-                            .message("Запрос в друзья успешно отклонен")
-                            .data(request)
-                            .build());
-        } catch (FriendRequestException e) {
-            logger.error("Ошибка при отклонении запроса: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                    ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.NOT_FOUND.value())
-                            .message(e.getMessage())
-                            .build());
-        }
+        FriendRequestDto request = friendRequestService.rejectRequest(requestId);
+        return ResponseEntity.ok(
+                SuccessResponse.builder().success(true).message("Запрос в друзья успешно отклонен")
+                        .data(request).build());
+
     }
 
     @Operation(summary = "Получить входящие запросы",
@@ -141,26 +97,12 @@ public class FriendRequestControllerImpl implements FriendRequestController {
     @GetMapping("/pending")
     public ResponseEntity<?> getPendingRequests(
             @AuthenticationPrincipal UserDetails userDetails) {
-        try {
-            Long userId = userService.findByUsername(userDetails.getUsername()).getId();
-            List<FriendRequestDto> requests = friendRequestService.getPendingRequests(userId);
 
-            return ResponseEntity.ok(
-                    SuccessResponse.builder()
-                            .success(true)
-                            .message("Входящие запросы успешно получены")
-                            .data(requests)
-                            .build());
-        } catch (RuntimeException e) {
-            logger.error("Ошибка при получении входящих запросов: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                    ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                            .message("Ошибка при получении входящих запросов")
-                            .details(e.getMessage())
-                            .build());
-        }
+        Long userId = userService.findByUsername(userDetails.getUsername()).getId();
+        List<FriendRequestDto> requests = friendRequestService.getPendingRequests(userId);
+        return ResponseEntity.ok(
+                SuccessResponse.builder().success(true).message("Входящие запросы успешно получены")
+                        .data(requests).build());
     }
 
     @Operation(summary = "Получить отправленные запросы",
@@ -172,26 +114,11 @@ public class FriendRequestControllerImpl implements FriendRequestController {
     @GetMapping("/sent")
     public ResponseEntity<?> getSentRequests(
             @AuthenticationPrincipal UserDetails userDetails) {
-        try {
-            Long userId = userService.findByUsername(userDetails.getUsername()).getId();
-            List<FriendRequestDto> requests = friendRequestService.getSentRequests(userId);
+        Long userId = userService.findByUsername(userDetails.getUsername()).getId();
+        List<FriendRequestDto> requests = friendRequestService.getSentRequests(userId);
+        return ResponseEntity.ok(SuccessResponse.builder().success(true)
+                .message("Отправленные запросы успешно получены").data(requests).build());
 
-            return ResponseEntity.ok(
-                    SuccessResponse.builder()
-                            .success(true)
-                            .message("Отправленные запросы успешно получены")
-                            .data(requests)
-                            .build());
-        } catch (RuntimeException e) {
-            logger.error("Ошибка при получении отправленных запросов: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                    ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                            .message("Ошибка при получении отправленных запросов")
-                            .details(e.getMessage())
-                            .build());
-        }
     }
 
     @Operation(summary = "Отменить запрос в друзья",
@@ -205,21 +132,10 @@ public class FriendRequestControllerImpl implements FriendRequestController {
     public ResponseEntity<?> cancelRequest(
             @Parameter(description = "ID запроса на дружбу", required = true)
             @PathVariable Long requestId) {
-        try {
-            friendRequestService.cancelRequest(requestId);
-            return ResponseEntity.ok(
-                    SuccessResponse.builder()
-                            .success(true)
-                            .message("Запрос в друзья успешно отменен")
-                            .build());
-        } catch (FriendRequestException e) {
-            logger.error("Ошибка при отмене запроса: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                    ErrorResponse.builder()
-                            .success(false)
-                            .status(HttpStatus.NOT_FOUND.value())
-                            .message(e.getMessage())
-                            .build());
-        }
+
+        friendRequestService.cancelRequest(requestId);
+        return ResponseEntity.ok(SuccessResponse.builder().success(true)
+                .message("Запрос в друзья успешно отменен").build());
+
     }
 }

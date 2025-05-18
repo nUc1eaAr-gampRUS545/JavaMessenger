@@ -45,9 +45,9 @@ public class MessageServiceImpl implements MessageService {
         User sender = userRepository.findById(senderId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + senderId));
 
-        if (!chatParticipantRepository.findByChatIdAndUserId(chatId, senderId).isPresent()) {
-            throw new MessageException.UserNotInChatException(senderId, chatId);
-        }
+//        if (chatParticipantRepository.findByChatIdAndUserId(chatId, senderId).isEmpty()) {
+//            throw new MessageException.UserNotInChatException(senderId, chatId);
+//        }
 
         Message message = new Message();
         message.setChat(chat);

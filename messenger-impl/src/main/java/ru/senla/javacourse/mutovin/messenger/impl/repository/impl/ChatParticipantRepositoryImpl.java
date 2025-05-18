@@ -28,7 +28,7 @@ public class ChatParticipantRepositoryImpl implements ChatParticipantRepository 
     public Optional<ChatParticipant> save(ChatParticipant participant) {
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.persist(participant);
+            session.merge(participant);
             transaction.commit();
         }
         return Optional.ofNullable(participant);
@@ -37,14 +37,14 @@ public class ChatParticipantRepositoryImpl implements ChatParticipantRepository 
     @Override
     public Optional<ChatParticipant> findById(Long id) {
         try (Session session = getSession()) {
-            return Optional.ofNullable(session.find(ChatParticipant.class, id));
+            return Optional.ofNullable(session.find(ChatParticipant.class,id));
         }
     }
 
     @Override
     public Optional<List<ChatParticipant>> findAll() {
         try (Session session = getSession()) {
-            return Optional.ofNullable(session.createQuery("from ChatParticipant", ChatParticipant.class).list());
+            return Optional.ofNullable(session.createQuery("from ChatParticipant",ChatParticipant.class).list());
         }
     }
 
@@ -61,8 +61,8 @@ public class ChatParticipantRepositoryImpl implements ChatParticipantRepository 
     @Override
     public boolean existsById(Long primaryKey) {
         try (Session session = getSession()) {
-            ChatParticipant entity = session.get(ChatParticipant.class, primaryKey);
-            return entity != null;
+            ChatParticipant entity = session.get(ChatParticipant.class,primaryKey);
+            return entity!=null;
         }
     }
 
@@ -70,8 +70,8 @@ public class ChatParticipantRepositoryImpl implements ChatParticipantRepository 
     public Optional<List<ChatParticipant>> findByChatId(Long chatId) {
         try (Session session = getSession()) {
             String hql = "FROM ChatParticipant cp WHERE cp.chat.id = :chatId AND cp.leftAt IS NULL";
-            Query<ChatParticipant> query = session.createQuery(hql, ChatParticipant.class)
-                    .setParameter("chatId", chatId);
+            Query<ChatParticipant> query = session.createQuery(hql,ChatParticipant.class)
+                    .setParameter("chatId",chatId);
             return Optional.ofNullable(query.list());
         }
     }
@@ -80,21 +80,21 @@ public class ChatParticipantRepositoryImpl implements ChatParticipantRepository 
     public Optional<List<ChatParticipant>> findByUserId(Long userId) {
         try (Session session = getSession()) {
             String hql = "FROM ChatParticipant cp WHERE cp.user.id = :userId AND cp.leftAt IS NULL";
-            Query<ChatParticipant> query = session.createQuery(hql, ChatParticipant.class)
-                    .setParameter("userId", userId);
+            Query<ChatParticipant> query = session.createQuery(hql,ChatParticipant.class)
+                    .setParameter("userId",userId);
             return Optional.ofNullable(query.list());
         }
     }
 
     @Override
-    public Optional<ChatParticipant> findByChatIdAndUserId(Long chatId, Long userId) {
-        try (Session session = getSession()) {
-            String hql = "FROM ChatParticipant cp WHERE cp.chat.id = :chatId AND cp.user.id = :userId AND cp.leftAt IS NULL";
-            Query<ChatParticipant> query = session.createQuery(hql, ChatParticipant.class)
-                    .setParameter("chatId", chatId)
-                    .setParameter("userId", userId);
-            return query.uniqueResultOptional();
-        }
+    public Optional<ChatParticipant> findByChatIdAndUserId(Long chatId,Long userId) {
+        Session session = getSession();
+        String hql = "FROM ChatParticipant cp WHERE cp.chat.id = :chatId AND cp.user.id = :userId AND cp.leftAt IS NULL";
+        Query<ChatParticipant> query = session.createQuery(hql,ChatParticipant.class)
+                .setParameter("chatId",chatId)
+                .setParameter("userId",userId);
+        return query.uniqueResultOptional();
+
     }
 
     @Override
@@ -111,8 +111,8 @@ public class ChatParticipantRepositoryImpl implements ChatParticipantRepository 
     public Optional<List<ChatParticipant>> findActiveParticipantsByChatId(Long chatId) {
         try (Session session = getSession()) {
             String hql = "FROM ChatParticipant cp WHERE cp.chat.id = :chatId AND cp.leftAt IS NULL";
-            Query<ChatParticipant> query = session.createQuery(hql, ChatParticipant.class)
-                    .setParameter("chatId", chatId);
+            Query<ChatParticipant> query = session.createQuery(hql,ChatParticipant.class)
+                    .setParameter("chatId",chatId);
             return Optional.ofNullable(query.list());
         }
     }
@@ -128,13 +128,13 @@ public class ChatParticipantRepositoryImpl implements ChatParticipantRepository 
     }
 
     @Override
-    public boolean isUserAdminInChat(Long userId, Long chatId) {
+    public boolean isUserAdminInChat(Long userId,Long chatId) {
         try (Session session = getSession()) {
             String hql = "SELECT count(cp) FROM ChatParticipant cp " +
                     "WHERE cp.user.id = :userId AND cp.chat.id = :chatId AND cp.isAdmin = true AND cp.leftAt IS NULL";
-            Query<Long> query = session.createQuery(hql, Long.class)
-                    .setParameter("userId", userId)
-                    .setParameter("chatId", chatId);
+            Query<Long> query = session.createQuery(hql,Long.class)
+                    .setParameter("userId",userId)
+                    .setParameter("chatId",chatId);
             return query.uniqueResult() > 0;
         }
     }
