@@ -1,7 +1,15 @@
 package ru.senla.javacourse.mutovin.messenger.impl.mapper;
 
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 import ru.senla.javacourse.mutovin.messenger.api.dto.FriendRequestDto;
 import ru.senla.javacourse.mutovin.messenger.db.entity.FriendRequest;
 
-public interface FriendRequestMapper extends GenericMapper<FriendRequest, FriendRequestDto> {
+@Mapper(componentModel = "spring")
+public interface FriendRequestMapper  {
+    FriendRequestMapper INSTANCE = Mappers.getMapper(FriendRequestMapper.class);
+
+    @Mapping(target = "id", ignore = true)
+    FriendRequestDto map(FriendRequest source);
 }

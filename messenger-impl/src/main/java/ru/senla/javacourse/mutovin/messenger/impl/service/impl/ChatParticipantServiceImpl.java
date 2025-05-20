@@ -85,16 +85,6 @@ public class ChatParticipantServiceImpl implements ChatParticipantService {
 
     @Override
     @Transactional
-    public List<ChatParticipantDto> getParticipantsByIds(Set<Long> participantIds) {
-        return chatParticipantRepository.findAllByParticipantIds(participantIds)
-                .orElseThrow(() -> new ChatParticipantException("Не удалось найти участников по указанным id"))
-                .stream()
-                .map(chatParticipantMapper::map)
-                .toList();
-    }
-
-    @Override
-    @Transactional
     public ChatParticipantDto getParticipantByChatAndUser(Long chatId, Long userId) {
         return findByChatIdAndUserId(chatId, userId);
     }

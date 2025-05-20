@@ -81,10 +81,9 @@ public class UserServiceImpl implements UserService {
 
     }
 
-
     @Override
     @Transactional
-    @Cacheable(value = "UserService::findByUsername", key = "#username")
+    @Cacheable(value = "UserService::findById", key = "#username")
     public User findByUsername(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Пользователь с username = " + username + " не найден!"));
@@ -134,6 +133,7 @@ public class UserServiceImpl implements UserService {
         User friend = findById(friendId);
 
         if (friendshipRepository.findByUserIdAndFriendId(userId,friendId).isPresent()) {
+
             throw new IllegalStateException("Дружба уже существует");
         }
 

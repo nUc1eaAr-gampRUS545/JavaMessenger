@@ -49,7 +49,6 @@ public class ChatRepositoryImpl implements ChatRepository {
     public Optional<Chat> findChatById(Long id,Long userId) {
         try (Session session = getSession()) {
             String hql = "FROM Chat c JOIN FETCH c.participants p WHERE c.id = :id AND p.id = :userId";
-            ;
             Query<Chat> query = session.createQuery(hql,Chat.class)
                     .setParameter("userId",userId)
                     .setParameter("id",id);

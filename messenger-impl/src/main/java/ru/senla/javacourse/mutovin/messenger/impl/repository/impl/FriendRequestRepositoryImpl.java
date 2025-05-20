@@ -27,7 +27,7 @@ public class FriendRequestRepositoryImpl implements FriendRequestRepository {
     public Optional<FriendRequest> save(FriendRequest entity) {
         try(Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.persist(entity);
+            session.merge(entity);
             transaction.commit();
             return Optional.of(entity);
         }
@@ -86,5 +86,10 @@ public class FriendRequestRepositoryImpl implements FriendRequestRepository {
                     .setParameter("userId", userId);
             return Optional.ofNullable(query.list());
         }
+    }
+
+    @Override
+    public Optional<FriendRequest> update(FriendRequest friendRequest) {
+        return Optional.empty();
     }
 }

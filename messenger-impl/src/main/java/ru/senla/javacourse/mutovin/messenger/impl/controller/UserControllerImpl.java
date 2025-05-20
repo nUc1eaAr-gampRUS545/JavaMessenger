@@ -51,6 +51,7 @@ public class UserControllerImpl implements UserController {
     public ResponseEntity<?> getProfile(@AuthenticationPrincipal UserDetails userDetails) {
         Long userId = userService.findByUsername(userDetails.getUsername()).getId();
         UserDto user = userService.findByIdWithFriendsAndPosts(userId);
+
         return ResponseEntity.ok(user);
     }
 

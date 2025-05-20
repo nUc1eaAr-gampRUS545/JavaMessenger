@@ -9,4 +9,5 @@ public interface FriendRequestRepository extends GenericRepository<FriendRequest
     Optional<FriendRequest> findBySenderAndReceiver(String sender,String receiver);
     Optional<List<FriendRequest>> findBySender(Long userId);
     Optional<List<FriendRequest>> findByReceiver(Long userId);
+    Optional<FriendRequest> update(FriendRequest friendRequest);
 }

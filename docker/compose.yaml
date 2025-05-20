@@ -10,33 +10,29 @@ volumes:
   postgres_data:
 
 services:
-  app:
-    restart: "no"
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: spring_application
-    ports:
-      - '8080:8080'
-    depends_on:
-      - db
-      - redis
-      - broker
-    env_file:
-      - ../.env
-    networks:
-      - app-network
+#  app:
+#    restart: "no"
+#    image: app
+#    container_name: app
+#    ports:
+#      - '8000:8000'
+#    depends_on:
+#      - broker
+#    networks:
+#      - app-network
 
   db:
     image: 'postgres:13'
     restart: always
     container_name: db
+    env_file:
+      - ../.env
     networks:
       - app-network
     environment:
-      - POSTGRES_USER=${POSTGRES_USERNAME}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DATABASE}
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=qwerty
+      - POSTGRES_DB=messenger
     ports:
       - "5432:5432"
     volumes:
@@ -51,24 +47,11 @@ services:
     ports:
       - '6379:6379'
     command: redis-server --save 20 1 --loglevel warning --requirepass $${REDIS_PASSWORD}
-    environment:
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
     volumes:
       - cache:/data
 
   broker:
-    image: apache/kafka:latest
+    image: apache/kafka:4.0.0
     container_name: broker
-    environment:
-      KAFKA_NODE_ID: 1
-      KAFKA_PROCESS_ROLES: broker,controller
-      KAFKA_LISTENERS: PLAINTEXT://localhost:9092,CONTROLLER://localhost:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
-      KAFKA_NUM_PARTITIONS: 3
+    ports:
+      - '9092:9092'

@@ -9,18 +9,14 @@ JavaMessenger - это современное веб-приложение для
 
 Для запуска приложения через Docker выполните следующие шаги:
 
-1. Построение Docker образа:
+1. Запуск контейнеров:
 ```bash
-docker build -t javamessenger .
+docker-compose up
 ```
-
-2. Запуск контейнера:
+2. Для сборки приложения оповещения:
 ```bash
-docker run -d -p 8080:8080 javamessenger
+docker build -t app . 
 ```
-
-Приложение будет доступно по адресу: http://localhost:8080
-
 ### 2. Запуск локально
 
 Для локального запуска приложения вам потребуется:
@@ -35,8 +31,10 @@ mvn clean install
 
 2. Запуск приложения:
 ```bash
-java -jar messenger-application/target/messenger-application-0.0.1-SNAPSHOT.jar
+java -jar JavaMessenger.jar
 ```
+
+Приложение будет доступно по адресу: http://localhost:8080
 
 ### 3. Запуск в режиме разработки
 
@@ -54,6 +52,9 @@ http://localhost:8080/swagger-ui/index.html
 - Spring Boot
 - Spring Security
 - JWT для аутентификации
+- Kafka
+- Redis
+- Flayway
 - PostgreSQL
 - Maven
 - Docker

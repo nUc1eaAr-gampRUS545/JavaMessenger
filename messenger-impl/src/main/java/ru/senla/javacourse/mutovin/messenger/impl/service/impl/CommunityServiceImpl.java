@@ -1,6 +1,7 @@
 package ru.senla.javacourse.mutovin.messenger.impl.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.senla.javacourse.mutovin.messenger.api.dto.CommunityDto;
@@ -28,6 +29,7 @@ public class CommunityServiceImpl implements CommunityService {
     private final CommunityRepository communityRepository;
     private final UserRepository userRepository;
     private final SubscribeRepository subscribeRepository;
+    private final PostRepository postRepository;
     private final PostCommunityRepository postCommunityRepository;
     private final CommunityMapper communityMapper;
     private final UserMapper userMapper;
@@ -36,13 +38,14 @@ public class CommunityServiceImpl implements CommunityService {
     @Override
     @Transactional
     public CommunityDto createCommunity(CommunityCreateRequest request) {
-        Community community = request.toEntity();
+        Community community = communityMapper.toEntity(request);
         Community result = communityRepository.save(community)
                 .orElseThrow(() -> new IllegalArgumentException("Не удалось создать сообщество"));
         return communityMapper.map(result);
     }
 
     @Override
+    @Cacheable(value = "CommunityService::getCommunity",key = "#id")
     public CommunityDto getCommunity(Long id) {
         Community result = communityRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Не удалось найти сообщество"));
@@ -108,12 +111,15 @@ public class CommunityServiceImpl implements CommunityService {
 
         Community community = communityRepository.findById(communityId)
                 .orElseThrow(() -> new ResourceNotFoundException("Community not found"));
-        Post post = request.toEntity();
+        Post post = postMapper.toEntity(request);
         post.setCreator(user);
+        Post resultPost = postRepository.save(post)
+                .orElseThrow(() -> new IllegalArgumentException("Не удалось сохранить пост"));
+
         if (communityRepository.isMember(userId,communityId)) {
             PostCommunity postCommunity = new PostCommunity();
             postCommunity.setCommunity(community);
-            postCommunity.setPost(post);
+            postCommunity.setPost(resultPost);
             postCommunity.setCreatedAt(LocalDateTime.now());
             postCommunityRepository.save(postCommunity);
 
@@ -149,7 +155,7 @@ public class CommunityServiceImpl implements CommunityService {
                 .orElseThrow(() ->
                         new IllegalArgumentException("Не удалось получить сообщества"));
 
-        return result.stream().map(i -> communityMapper.map(i)).toList();
+        return result.stream().map(communityMapper::map).toList();
     }
 
 

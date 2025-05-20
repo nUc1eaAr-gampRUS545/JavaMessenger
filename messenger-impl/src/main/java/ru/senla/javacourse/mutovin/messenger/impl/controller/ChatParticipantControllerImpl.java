@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.senla.javacourse.mutovin.messenger.api.controller.ChatParticipantController;
 import ru.senla.javacourse.mutovin.messenger.api.dto.ChatParticipantDto;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.SuccessResponse;
 import ru.senla.javacourse.mutovin.messenger.db.entity.ChatParticipant;
@@ -21,7 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/chat-participants")
 @RequiredArgsConstructor
-public class ChatParticipantControllerImpl {
+public class ChatParticipantControllerImpl implements ChatParticipantController {
 
     private final ChatParticipantService chatParticipantService;
 
@@ -96,24 +97,6 @@ public class ChatParticipantControllerImpl {
                         .success(true)
                         .message("Список активных участников успешно получен")
                         .data(participantDto)
-                        .build());
-    }
-
-    @Operation(summary = "Получить участников по ID", description = "Возвращает список участников чата по их ID")
-    @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "Список участников успешно получен")
-    })
-    @PostMapping("/batch")
-    public ResponseEntity<?> getParticipantsByIds(
-            @Parameter(description = "Список ID участников") @RequestBody Set<Long> participantIds) {
-        List<ChatParticipantDto> participants = chatParticipantService.getParticipantsByIds(participantIds);
-
-        return ResponseEntity.ok(
-                SuccessResponse
-                        .builder()
-                        .success(true)
-                        .message("Список участников успешно получен")
-                        .data(participants)
                         .build());
     }
 

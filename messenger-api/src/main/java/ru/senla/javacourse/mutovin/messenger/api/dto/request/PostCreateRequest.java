@@ -7,11 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.senla.javacourse.mutovin.messenger.db.entity.Post;
-import ru.senla.javacourse.mutovin.messenger.db.entity.PostStatus;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -30,12 +27,12 @@ public class PostCreateRequest implements Serializable {
     @Schema(description = "Содержимое поста", example = "Это содержимое моего первого поста...", requiredMode = Schema.RequiredMode.REQUIRED)
     private String content;
 
-    public Post toEntity(){
-        Post post = new Post();
-        post.setContent(content);
-        post.setCreatedAt(LocalDateTime.now());
-        post.setTitle(title);
-        post.setStatus(PostStatus.PUBLISHED);
-        return post;
-    }
+//    public Post toEntity(){
+//        Post post = new Post();
+//        post.setContent(content);
+//        post.setCreatedAt(LocalDateTime.now());
+//        post.setTitle(title);
+//        post.setStatus(PostStatus.PUBLISHED);
+//        return post;
+//    }
 }

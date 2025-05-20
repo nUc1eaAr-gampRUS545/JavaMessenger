@@ -7,7 +7,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import ru.senla.javacourse.mutovin.messenger.api.controller.MessageController;
 import ru.senla.javacourse.mutovin.messenger.api.dto.MessageDto;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.MessageCreateRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.MessageUpdateRequest;
@@ -15,6 +18,7 @@ import ru.senla.javacourse.mutovin.messenger.api.dto.response.SuccessResponse;
 import ru.senla.javacourse.mutovin.messenger.db.entity.Message;
 import ru.senla.javacourse.mutovin.messenger.db.entity.MessageStatus;
 import ru.senla.javacourse.mutovin.messenger.impl.service.MessageService;
+import ru.senla.javacourse.mutovin.messenger.impl.service.UserService;
 
 import java.util.List;
 import java.util.Set;
@@ -24,10 +28,10 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/messages")
 @RequiredArgsConstructor
-public class MessageControllerImpl {
+public class MessageControllerImpl implements MessageController {
 
     private final MessageService messageService;
-
+    private final UserService userService;
     @Operation(summary = "Создать сообщение", description = "Создает новое сообщение в чате")
     @ApiResponses({
         @ApiResponse(responseCode = "200", description = "Сообщение успешно создано"),
@@ -35,8 +39,11 @@ public class MessageControllerImpl {
         @ApiResponse(responseCode = "404", description = "Чат или отправитель не найдены")
     })
     @PostMapping
-    public ResponseEntity<?> createMessage(@RequestBody MessageCreateRequest request) {
-        MessageDto message = messageService.createMessage(request.getChatId(), request.getSenderId(), request.getContent());
+    public ResponseEntity<?> createMessage(
+            @AuthenticationPrincipal UserDetails userDetails,
+            @RequestBody MessageCreateRequest request) {
+        Long userId = userService.findByUsername(userDetails.getUsername()).getId();
+        MessageDto message = messageService.createMessage(request.getChatId(), userId, request.getContent());
         return ResponseEntity.ok(
                 SuccessResponse.builder().success(true).message("Сообщение успешно создано")
                         .data(message).build());

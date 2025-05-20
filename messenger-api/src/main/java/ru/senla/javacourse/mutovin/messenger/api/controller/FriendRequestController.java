@@ -9,12 +9,15 @@ import ru.senla.javacourse.mutovin.messenger.api.dto.FriendRequestDto;
 import java.util.List;
 
 public interface FriendRequestController {
-    ResponseEntity<?> sendRequest(
-            @AuthenticationPrincipal UserDetails userDetails,
-            @PathVariable Long receiverId);
+    ResponseEntity<?> sendRequest(@AuthenticationPrincipal UserDetails userDetails,@PathVariable Long receiverId);
+
     ResponseEntity<?> acceptRequest(@PathVariable Long requestId);
+
     ResponseEntity<?> rejectRequest(@PathVariable Long requestId);
+
     ResponseEntity<?> getPendingRequests(@AuthenticationPrincipal UserDetails userDetails);
+
     ResponseEntity<?> getSentRequests(@AuthenticationPrincipal UserDetails userDetails);
+
     ResponseEntity<?> cancelRequest(@PathVariable Long requestId);
 }

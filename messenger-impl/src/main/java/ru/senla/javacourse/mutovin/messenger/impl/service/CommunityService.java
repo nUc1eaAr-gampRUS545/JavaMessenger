@@ -17,9 +17,6 @@ public interface CommunityService {
     CommunityDto  joinCommunity(Long userId, Long communityId);
     List<UserDto> getCommunityMembers(Long communityId);
     List<CommunityDto> getUserCommunities(Long userId);
-
-    @Transactional
     CommunityDto createPostInCommunity(Long userId,Long communityId,PostCreateRequest request) throws AccessDeniedException;
-
     void leaveCommunity(Long userId,Long communityId);
 }

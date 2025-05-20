@@ -117,7 +117,7 @@ public class CommunityControllerImpl implements CommunityController {
         @ApiResponse(responseCode = "404", description = "Сообщество не найдено"),
         @ApiResponse(responseCode = "403", description = "Нет прав на удаление")
     })
-    public ResponseEntity<?> deleteCommunity(Long id) {
+    public ResponseEntity<?> deleteCommunity(@PathVariable Long id) {
         communityService.deleteCommunity(id);
         return ResponseEntity.ok(SuccessResponse.builder()
                 .success(true)
@@ -153,7 +153,7 @@ public class CommunityControllerImpl implements CommunityController {
         @ApiResponse(responseCode = "403", description = "Нет прав на покидание")
     })
 
-    public ResponseEntity<?> leaveCommunity(@AuthenticationPrincipal UserDetails userDetails, Long communityId) {
+    public ResponseEntity<?> leaveCommunity(@AuthenticationPrincipal UserDetails userDetails,@PathVariable Long communityId) {
         Long userId = userService.findByUsername(userDetails.getUsername()).getId();
         communityService.leaveCommunity(userId, communityId);
         return ResponseEntity.ok(SuccessResponse.builder()
@@ -169,7 +169,7 @@ public class CommunityControllerImpl implements CommunityController {
         @ApiResponse(responseCode = "200", description = "Список участников успешно получен"),
         @ApiResponse(responseCode = "404", description = "Сообщество не найдено")
     })
-    public ResponseEntity<?> getCommunityMembers(Long communityId) {
+    public ResponseEntity<?> getCommunityMembers(@PathVariable Long communityId) {
         List<UserDto> members = communityService.getCommunityMembers(communityId);
         return ResponseEntity.ok(SuccessResponse.builder()
                 .success(true)
@@ -185,7 +185,7 @@ public class CommunityControllerImpl implements CommunityController {
         @ApiResponse(responseCode = "200", description = "Список сообществ успешно получен"),
         @ApiResponse(responseCode = "404", description = "Пользователь не найден")
     })
-    public ResponseEntity<?> getCommunitiesByUser(Long userId) {
+    public ResponseEntity<?> getCommunitiesByUser(@PathVariable Long userId) {
         List<CommunityDto> communities = communityService.getUserCommunities(userId);
         return ResponseEntity.ok(SuccessResponse.builder()
                 .success(true)

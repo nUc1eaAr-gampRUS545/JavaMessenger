@@ -8,16 +8,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import ru.senla.javacourse.mutovin.messenger.api.controller.FriendRequestController;
 import ru.senla.javacourse.mutovin.messenger.api.dto.FriendRequestDto;
-import ru.senla.javacourse.mutovin.messenger.api.dto.response.ErrorResponse;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.SuccessResponse;
-import ru.senla.javacourse.mutovin.messenger.impl.exception.FriendRequestException;
 import ru.senla.javacourse.mutovin.messenger.impl.service.FriendRequestService;
 import ru.senla.javacourse.mutovin.messenger.impl.service.UserService;
 

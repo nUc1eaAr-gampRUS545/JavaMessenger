@@ -15,5 +15,4 @@ public interface PostService {
     List<PostDto> findAllPosts();
     void deletePostById(Long postId, Long currentUserId);
     boolean existsById(Long postId);
-    void deletePostAsAdmin(Long postId);
 }

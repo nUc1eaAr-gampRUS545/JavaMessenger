@@ -1,7 +1,6 @@
 package ru.senla.javacourse.mutovin.messenger.api.dto;
 
 import lombok.Data;
-import ru.senla.javacourse.mutovin.messenger.db.entity.MessageStatus;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

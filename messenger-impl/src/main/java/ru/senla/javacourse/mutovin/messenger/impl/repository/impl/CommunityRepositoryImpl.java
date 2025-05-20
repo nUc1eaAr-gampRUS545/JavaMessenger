@@ -27,10 +27,9 @@ public class CommunityRepositoryImpl implements CommunityRepository {
     @Override
     public Optional<List<Community>> getCommunitiesByUserId(Long userId) {
         try (Session session = getSession()) {
-            return Optional.ofNullable(session.createQuery(
-                            "SELECT c FROM Subscribe s " +
+            return Optional.of(session.createQuery(
+                            "SELECT s.community FROM Subscribe s " +
                                     "LEFT JOIN s.member m " +
-                                    "LEFT JOIN s.community c " +
                                     "WHERE m.id = :userId",
                             Community.class)
                     .setParameter("userId",userId)
@@ -56,12 +55,12 @@ public class CommunityRepositoryImpl implements CommunityRepository {
     public Optional<List<Post>> getPostsInCommunity(Long communityId) {
         try (Session session = getSession()) {
             List<Post> posts = session.createQuery(
-                            "FROM PostCommunity pc " +
-                                    "JOIN FETCH pc.post " +
-                                    "JOIN FETCH pc.community " +
-                                    "WHERE pc.community.id = :communityId",Post.class)
-                    .setParameter("communityId",communityId).list();
-            return Optional.ofNullable(posts);
+                            "SELECT pc.post FROM PostCommunity pc " +
+                                    "JOIN pc.community c " +
+                                    "WHERE c.id = :communityId",Post.class)
+                    .setParameter("communityId",communityId)
+                    .list();
+            return Optional.of(posts);
         }
     }
 

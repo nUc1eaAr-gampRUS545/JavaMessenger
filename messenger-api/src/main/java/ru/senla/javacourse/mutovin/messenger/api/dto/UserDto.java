@@ -1,8 +1,6 @@
 package ru.senla.javacourse.mutovin.messenger.api.dto;
 
 import lombok.Data;
-import ru.senla.javacourse.mutovin.messenger.db.entity.Gender;
-import ru.senla.javacourse.mutovin.messenger.db.entity.Role;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -5,9 +5,7 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.senla.javacourse.mutovin.messenger.db.entity.Gender;
-import ru.senla.javacourse.mutovin.messenger.db.entity.Role;
-import ru.senla.javacourse.mutovin.messenger.db.entity.User;
+
 
 import java.util.HashSet;
 
@@ -57,19 +55,19 @@ public class SignUpRequest {
     @Size(min=8,max = 255, message = "Длина пароля должна быть не более 255 символов")
     private String password;
 
-    public User toEntity(){
-        User user = User.builder()
-                .firstname(firstname)
-                .lastname(lastname)
-                .phoneNumber(phonenumber)
-                .username(username)
-                .email(email)
-                .age(age)
-                .gender(Gender.valueOf(gender))
-                .role(Role.ROLE_USER)
-//                .communities(new HashSet<>())
-                .build();
-        return user;
-    }
+//    public User toEntity(){
+//        User user = User.builder()
+//                .firstname(firstname)
+//                .lastname(lastname)
+//                .phoneNumber(phonenumber)
+//                .username(username)
+//                .email(email)
+//                .age(age)
+//                .gender(Gender.valueOf(gender))
+//                .role(Role.ROLE_USER)
+////                .communities(new HashSet<>())
+//                .build();
+//        return user;
+//    }
 
 }

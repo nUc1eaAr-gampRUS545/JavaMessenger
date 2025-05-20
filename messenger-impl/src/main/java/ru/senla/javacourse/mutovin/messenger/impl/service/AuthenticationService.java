@@ -13,5 +13,4 @@ public interface AuthenticationService {
 
     JwtAuthenticationResponse signIn(SignInRequest request);
 
-    UserDto checkVerifyToken(HttpServletRequest request);
 }

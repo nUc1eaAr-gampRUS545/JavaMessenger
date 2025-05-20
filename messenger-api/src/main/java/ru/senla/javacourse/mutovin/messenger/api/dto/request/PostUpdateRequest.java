@@ -28,4 +28,9 @@ public class PostUpdateRequest implements Serializable {
     @Size(min = 1, max = 5000, message = "Содержимое должно содержать от 1 до 5000 символов")
     @Schema(description = "Содержимое поста", example = "Это содержимое моего первого поста...", requiredMode = Schema.RequiredMode.REQUIRED)
     private String content;
+
+    public PostUpdateRequest(Long postId,String updatedContent) {
+        this.postId = postId;
+        this.content = updatedContent;
+    }
 }

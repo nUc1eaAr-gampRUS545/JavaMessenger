@@ -9,8 +9,10 @@
     </parent>
     <artifactId>messenger-application</artifactId>
     <version>${project.parent.version}</version>
+    <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <main-class>ru.senla.javacourse.mutovin.messenger.application.MessengerApplication</main-class>
     </properties>
     <dependencies>
 
@@ -19,8 +21,25 @@
             <artifactId>messenger-impl</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-
+        <!--Тестирование -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+        </dependency>
 
     </dependencies>
+
 
 </project>

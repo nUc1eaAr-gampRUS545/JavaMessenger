@@ -16,6 +16,7 @@ import ru.senla.javacourse.mutovin.messenger.api.dto.UserDto;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.SignInRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.SignUpRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.JwtAuthenticationResponse;
+import ru.senla.javacourse.mutovin.messenger.db.entity.Gender;
 import ru.senla.javacourse.mutovin.messenger.db.entity.Role;
 import ru.senla.javacourse.mutovin.messenger.db.entity.User;
 import ru.senla.javacourse.mutovin.messenger.impl.mapper.UserMapper;
@@ -51,18 +52,21 @@ class AuthenticationServiceTest {
     void signUp_ShouldReturnJwtResponse_WhenValidRequest() {
         // Arrange
         SignUpRequest request = new SignUpRequest();
-        request.setFirstname("John");
-        request.setLastname("Doe");
+        request.setFirstname("Johnnnj");
+        request.setLastname("Doennkki");
         request.setPhonenumber("1234567890");
         request.setUsername("johndoe");
+        request.setGender(String.valueOf(Gender.MALE));
         request.setEmail("john@example.com");
         request.setPassword("password");
 
         User mockUser = User.builder()
                 .id(1L)
-                .firstname("John")
-                .lastname("Doe")
+                .firstname("Johnnj")
+                .lastname("Doemjknj")
                 .phoneNumber("1234567890")
+                .age(20)
+                .gender(Gender.MALE)
                 .username("johndoe")
                 .email("john@example.com")
                 .password("encodedPassword")
@@ -134,102 +138,4 @@ class AuthenticationServiceTest {
         verifyNoInteractions(jwtService);
     }
 
-    @Test
-    void checkVerifyToken_ShouldReturnUserDto_WhenValidToken() {
-        // Arrange
-        HttpServletRequest mockRequest = mock(HttpServletRequest.class);
-        when(mockRequest.getHeader("Authorization")).thenReturn("Bearer validToken");
-
-        UserDetails userDetails = mock(UserDetails.class);
-        User mockUser = new User();
-        mockUser.setUsername("johndoe");
-        UserDto mockUserDto = new UserDto();
-
-        when(jwtService.extractUserName("validToken")).thenReturn("johndoe");
-        when(userService.userDetailsService().loadUserByUsername("johndoe")).thenReturn(userDetails);
-        when(jwtService.isTokenValid("validToken", userDetails)).thenReturn(true);
-        when(userService.findByUsername("johndoe")).thenReturn(mockUser);
-        when(userMapper.map(mockUser)).thenReturn(mockUserDto);
-
-        UserDto result = authenticationService.checkVerifyToken(mockRequest);
-
-        assertNotNull(result);
-        assertEquals(mockUserDto, result);
-
-        verify(mockRequest).getHeader("Authorization");
-        verify(jwtService).extractUserName("validToken");
-        verify(jwtService).isTokenValid("validToken", userDetails);
-        verify(userService).findByUsername("johndoe");
-        verify(userMapper).map(mockUser);
-    }
-
-    @Test
-    void checkVerifyToken_ShouldThrowException_WhenMissingAuthHeader() {
-
-        HttpServletRequest mockRequest = mock(HttpServletRequest.class);
-        when(mockRequest.getHeader("Authorization")).thenReturn(null);
-
-
-        assertThrows(BadCredentialsException.class, () -> {
-            authenticationService.checkVerifyToken(mockRequest);
-        });
-
-        verify(mockRequest).getHeader("Authorization");
-        verifyNoInteractions(jwtService, userService, userMapper);
-    }
-
-    @Test
-    void checkVerifyToken_ShouldThrowException_WhenInvalidAuthHeaderFormat() {
-
-        HttpServletRequest mockRequest = mock(HttpServletRequest.class);
-        when(mockRequest.getHeader("Authorization")).thenReturn("InvalidFormat");
-
-
-        assertThrows(BadCredentialsException.class, () -> {
-            authenticationService.checkVerifyToken(mockRequest);
-        });
-
-        verify(mockRequest).getHeader("Authorization");
-        verifyNoInteractions(jwtService, userService, userMapper);
-    }
-
-    @Test
-    void checkVerifyToken_ShouldThrowException_WhenInvalidToken() {
-        HttpServletRequest mockRequest = mock(HttpServletRequest.class);
-        when(mockRequest.getHeader("Authorization")).thenReturn("Bearer invalidToken");
-
-        when(jwtService.extractUserName("invalidToken")).thenReturn(null);
-
-        assertThrows(BadCredentialsException.class, () -> {
-            authenticationService.checkVerifyToken(mockRequest);
-        });
-
-        verify(mockRequest).getHeader("Authorization");
-        verify(jwtService).extractUserName("invalidToken");
-        verifyNoMoreInteractions(jwtService);
-        verifyNoInteractions(userService, userMapper);
-    }
-
-    @Test
-    void checkVerifyToken_ShouldThrowException_WhenTokenValidationFails() {
-
-        HttpServletRequest mockRequest = mock(HttpServletRequest.class);
-        when(mockRequest.getHeader("Authorization")).thenReturn("Bearer expiredToken");
-
-        UserDetails userDetails = mock(UserDetails.class);
-
-        when(jwtService.extractUserName("expiredToken")).thenReturn("johndoe");
-        when(userService.userDetailsService().loadUserByUsername("johndoe")).thenReturn(userDetails);
-        when(jwtService.isTokenValid("expiredToken", userDetails)).thenReturn(false);
-
-
-        assertThrows(BadCredentialsException.class, () -> {
-            authenticationService.checkVerifyToken(mockRequest);
-        });
-
-        verify(mockRequest).getHeader("Authorization");
-        verify(jwtService).extractUserName("expiredToken");
-        verify(jwtService).isTokenValid("expiredToken", userDetails);
-        verifyNoInteractions(userMapper);
-    }
 }

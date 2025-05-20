@@ -9,6 +9,7 @@ import ru.senla.javacourse.mutovin.messenger.api.dto.request.SignUpRequest;
 
 public interface AuthController {
     ResponseEntity<?> signUp(@RequestBody @Valid SignUpRequest request);
+
     ResponseEntity<?> signIn(@RequestBody @Valid SignInRequest request);
-    ResponseEntity<?> verifyToken(HttpServletRequest request);
+
 }

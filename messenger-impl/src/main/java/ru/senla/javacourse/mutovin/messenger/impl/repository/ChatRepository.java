@@ -1,7 +1,6 @@
 package ru.senla.javacourse.mutovin.messenger.impl.repository;
 
 import ru.senla.javacourse.mutovin.messenger.db.entity.Chat;
-import ru.senla.javacourse.mutovin.messenger.db.entity.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,9 +8,7 @@ import java.util.Set;
 
 public interface ChatRepository extends GenericRepository<Chat, Long> {
     Optional<Chat> findChatById(Long id, Long userId);
-
     Optional<List<Chat>> findByCreatorId(Long creatorId);
-
     Optional<List<Chat>> findByParticipantId(Long participantId);
     Optional<Chat> findPrivateChatByParticipants(Long userId1, Long userId2);
     Optional<Chat> update(Chat chat);

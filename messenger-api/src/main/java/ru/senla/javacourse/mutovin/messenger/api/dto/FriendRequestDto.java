@@ -13,4 +13,13 @@ public class FriendRequestDto implements Serializable {
     private String status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-} 
+
+    public enum MessageStatus {
+        SENT,
+        DELIVERED,
+        READ,
+        EDITED,
+        DELETED,
+        DELETED_BY_ADMIN
+    }
+}

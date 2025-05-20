@@ -10,28 +10,29 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import ru.senla.javacourse.mutovin.messenger.api.controller.PostController;
 import ru.senla.javacourse.mutovin.messenger.api.dto.PostDto;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.PostCreateRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.PostUpdateRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.ErrorResponse;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.SuccessResponse;
-import ru.senla.javacourse.mutovin.messenger.db.entity.Post;
-import ru.senla.javacourse.mutovin.messenger.impl.exception.PostException;
-import ru.senla.javacourse.mutovin.messenger.impl.mapper.PostMapper;
+import ru.senla.javacourse.mutovin.messenger.db.entity.Role;
+import ru.senla.javacourse.mutovin.messenger.db.entity.User;
+
 import ru.senla.javacourse.mutovin.messenger.impl.service.PostService;
 import ru.senla.javacourse.mutovin.messenger.impl.service.UserService;
 
 import java.util.List;
+import java.util.Objects;
 
 @Tag(name = "Посты", description = "API для управления постами")
 @RestController
 @RequestMapping("/api/posts")
 @RequiredArgsConstructor
-public class PostControllerImpl {
+public class PostControllerImpl implements PostController {
 
     private final PostService postService;
     private final UserService userService;
@@ -130,22 +131,6 @@ public class PostControllerImpl {
 
     }
 
-    @Operation(summary = "Удалить пост", description = "Удаляет пост по его идентификатору")
-    @ApiResponses({
-            @ApiResponse(responseCode = "204", description = "Пост успешно удален"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен"),
-            @ApiResponse(responseCode = "404", description = "Пост не найден")})
-    @DeleteMapping("/{postId}")
-    public ResponseEntity<?> deletePost(@AuthenticationPrincipal UserDetails userDetails,
-                                        @Parameter(description = "ID поста") @PathVariable Long postId) {
-
-        Long userId = userService.findByUsername(userDetails.getUsername()).getId();
-
-        postService.deletePostById(postId,userId);
-        return ResponseEntity.noContent().build();
-
-    }
-
     @Operation(summary = "Удалить пост (администратор)",
             description = "Удаляет пост по его ID (только для администраторов)")
     @ApiResponses({
@@ -154,12 +139,32 @@ public class PostControllerImpl {
             @ApiResponse(responseCode = "404", description = "Пост не найден")
     })
     @DeleteMapping("/admin/{postId}")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> deletePostAsAdmin(
-            @Parameter(description = "ID поста") @PathVariable Long postId) {
+    public ResponseEntity<?> deletePost(@AuthenticationPrincipal UserDetails userDetails,
+                                        @Parameter(description = "ID поста") @PathVariable Long postId) {
+        User person = userService.findByUsername(userDetails.getUsername());
+        if (person.getRole().equals(Role.ROLE_ADMIN)) {
+            postService.deletePostById(postId,person.getId());
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
 
-        postService.deletePostAsAdmin(postId);
-        return ResponseEntity.noContent().build();
+    @Operation(summary = "Удалить пост", description = "Удаляет пост по его идентификатору")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "Пост успешно удален"),
+            @ApiResponse(responseCode = "403", description = "Доступ запрещен"),
+            @ApiResponse(responseCode = "404", description = "Пост не найден")})
+    @DeleteMapping("/{postId}")
+    public ResponseEntity<?> deleteMyPost(@AuthenticationPrincipal UserDetails userDetails,
+                                          @Parameter(description = "ID поста") @PathVariable Long postId) {
+        User person = userService.findByUsername(userDetails.getUsername());
+        PostDto post = postService.findPostById(postId,person.getId());
+        if (Objects.equals(post.getCreator().getId(),person.getId())) {
+            postService.deletePostById(postId,person.getId());
+            return ResponseEntity.ok().build();
+        } else return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 
     }
+
 }

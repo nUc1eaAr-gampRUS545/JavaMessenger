@@ -76,7 +76,7 @@ public class PostServiceImpl implements PostService {
             throw new PostException.EmptyPostContentException();
         }
         User creator = userService.findById(creatorId);
-        Post post = request.toEntity();
+        Post post = postMapper.toEntity(request);
         post.setCreator(creator);
 
         Post result = postRepository.save(post)
@@ -129,18 +129,6 @@ public class PostServiceImpl implements PostService {
     @Transactional(readOnly = true)
     public boolean existsById(Long postId) {
         return postRepository.existsById(postId);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public void deletePostAsAdmin(Long postId) {
-        Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new PostException.PostNotFoundException(postId));
-
-        post.setStatus(PostStatus.DELETED_BY_ADMIN);
-        post.setUpdatedAt(LocalDateTime.now());
-        postRepository.update(post);
-
     }
 
     private void validatePostAccess(Post post,Long currentUserId) {

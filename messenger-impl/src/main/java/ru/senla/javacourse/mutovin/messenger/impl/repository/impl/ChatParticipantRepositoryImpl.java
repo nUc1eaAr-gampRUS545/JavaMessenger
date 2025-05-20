@@ -28,10 +28,10 @@ public class ChatParticipantRepositoryImpl implements ChatParticipantRepository 
     public Optional<ChatParticipant> save(ChatParticipant participant) {
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.merge(participant);
+            ChatParticipant chatParticipant = session.merge(participant);
             transaction.commit();
+            return Optional.of(chatParticipant);
         }
-        return Optional.ofNullable(participant);
     }
 
     @Override

@@ -1,14 +1,17 @@
 package ru.senla.javacourse.mutovin.messenger.db.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import lombok.*;
+
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = {"chat", "user"})
+@EqualsAndHashCode(exclude = {"chat", "user"})
 @Entity
 @Table(name = "chat_participants")
 public class ChatParticipant {

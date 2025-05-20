@@ -2,12 +2,10 @@ package ru.senla.javacourse.mutovin.messenger.impl.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,15 +43,6 @@ public class AuthControllerImpl implements AuthController {
 
     }
 
-    @Operation(summary = "Проверка валидности токена")
-    @GetMapping("/token")
-    public ResponseEntity<?> verifyToken(HttpServletRequest request) {
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(SuccessResponse.builder()
-                .success(true).message("Токен валиден")
-                .data(authenticationService.checkVerifyToken(request)).build());
-
-    }
 }
 
 

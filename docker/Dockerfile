@@ -1,6 +1,6 @@
 FROM openjdk:17-jdk
-COPY JavaMessenger.jar JavaMessenger.jar
+COPY NotificationsMail.jar NotificationsMail.jar
 
-EXPOSE 8080
+EXPOSE 8000
 
-ENTRYPOINT ["java", "-jar", "JavaMessenger.jar"]
+ENTRYPOINT ["java", "-jar", "NotificationsMail.jar"]

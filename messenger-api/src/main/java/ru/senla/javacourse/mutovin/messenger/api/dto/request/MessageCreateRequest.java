@@ -12,10 +12,6 @@ public class MessageCreateRequest {
     @Schema(description = "ID чата", example = "1", required = true)
     private Long chatId;
     
-    @NotNull
-    @Schema(description = "ID отправителя", example = "1", required = true)
-    private Long senderId;
-    
     @NotBlank
     @Schema(description = "Текст сообщения", example = "Привет, как дела?", required = true)
     private String content;

@@ -1,6 +1,7 @@
 package ru.senla.javacourse.mutovin.messenger.impl.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.senla.javacourse.mutovin.messenger.api.dto.FriendRequestDto;
@@ -15,7 +16,6 @@ import ru.senla.javacourse.mutovin.messenger.impl.service.UserService;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -55,7 +55,7 @@ public class FriendRequestServiceImpl implements FriendRequestService {
 
         userService.addFriend(request.getSender().getId(),request.getRecipient().getId());
         userService.addFriend(request.getRecipient().getId(),request.getSender().getId());
-
+        friendRequestRepository.save(request);
         FriendRequest result = friendRequestRepository.save(request).orElseThrow(
                 () -> new ResourceNotFoundException("Запрос в друзья не найден")
         );
@@ -105,6 +105,7 @@ public class FriendRequestServiceImpl implements FriendRequestService {
 
     @Override
     @Transactional(readOnly = true)
+    @Cacheable(value = "FriendRequestService::findById",key = "#id")
     public FriendRequest findById(Long id) {
         return friendRequestRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Запрос в друзья не найден с id: " + id));

@@ -14,6 +14,5 @@ public interface ChatParticipantService {
     List<ChatParticipantDto> getUserParticipations(Long userId);
     List<ChatParticipantDto> getActiveChatParticipants(Long chatId);
     ChatParticipantDto getParticipantById(Long participantId);
-    List<ChatParticipantDto> getParticipantsByIds(Set<Long> participantIds);
     ChatParticipantDto getParticipantByChatAndUser(Long chatId, Long userId);
 } 

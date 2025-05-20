@@ -50,10 +50,10 @@ public class PostRepositoryImpl implements PostRepository {
     public Optional<Post> save(Post entity) {
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.merge(entity);
+            Post post = session.merge(entity);
             transaction.commit();
+            return Optional.ofNullable(post);
         }
-        return Optional.ofNullable(entity);
     }
 
     @Override

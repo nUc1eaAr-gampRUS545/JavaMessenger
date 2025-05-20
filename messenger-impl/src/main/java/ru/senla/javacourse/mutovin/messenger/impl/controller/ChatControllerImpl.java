@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import ru.senla.javacourse.mutovin.messenger.api.controller.ChatController;
 import ru.senla.javacourse.mutovin.messenger.api.dto.ChatDto;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.ChatCreateRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.ErrorResponse;
@@ -26,7 +27,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/chats")
 @RequiredArgsConstructor
-public class ChatControllerImpl {
+public class ChatControllerImpl implements ChatController {
 
     private final ChatService chatService;
     private final UserService userService;
@@ -55,7 +56,6 @@ public class ChatControllerImpl {
 
         return ResponseEntity.ok(
                 SuccessResponse.builder().success(true).message("Чат успешно создан").data(chat).build());
-
 
     }
 
