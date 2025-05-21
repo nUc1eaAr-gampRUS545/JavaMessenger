@@ -1,6 +1,5 @@
 package ru.senla.javacourse.mutovin.messenger.db.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -105,17 +105,17 @@ public class MessageRepositoryImpl implements MessageRepository {
         return Optional.ofNullable(query.list());
     }
 
-    @Override
-    public Optional<List<Message>> findMessagesByChatIdAndUserId(Long chatId, Long userId) {
-        Session session = getSession();
-        String hql = "FROM Message m JOIN FETCH m.sender JOIN FETCH m.chat WHERE m.chat.id = :chatId " +
-                "AND m.chat.id IN (SELECT cp.chat.id FROM ChatParticipant cp WHERE cp.user.id = :userId) " +
-                "ORDER BY m.createdAt DESC";
-        Query<Message> query = session.createQuery(hql, Message.class)
-                .setParameter("chatId", chatId)
-                .setParameter("userId", userId);
-        return Optional.ofNullable(query.list());
-    }
+//    @Override
+//    public Optional<List<Message>> findMessagesByChatIdAndUserId(Long chatId, Long userId) {
+//        Session session = getSession();
+//        String hql = "FROM Message m JOIN FETCH m.sender JOIN FETCH m.chat WHERE m.chat.id = :chatId " +
+//                "AND m.chat.id IN (SELECT cp.chat.id FROM ChatParticipant cp WHERE cp.user.id = :userId) " +
+//                "ORDER BY m.createdAt DESC";
+//        Query<Message> query = session.createQuery(hql, Message.class)
+//                .setParameter("chatId", chatId)
+//                .setParameter("userId", userId);
+//        return Optional.ofNullable(query.list());
+//    }
 
     @Override
     public Optional<Set<Message>> findAllByMessageIds(Set<Long> messageIds) {

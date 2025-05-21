@@ -38,18 +38,6 @@ public class UserRepositoryImpl implements UserRepository {
 
     }
     @Override
-    @Transactional
-    public Optional<User> update(User user) {
-        try (Session session = getSession()) {
-            Transaction transaction = session.beginTransaction();
-            session.persist(user);
-            transaction.commit();
-
-        }
-        return Optional.ofNullable(user);
-    }
-
-    @Override
 
     public Optional<User> findByUsername(String username) {
         try (Session session = getSession()) {
@@ -73,13 +61,6 @@ public class UserRepositoryImpl implements UserRepository {
         try (Session session = getSession()){
             return Optional.of(session.createQuery("from User").stream().toList());
         }
-    }
-
-    @Override
-    public Optional<Set<User>> findAllByUserIds(Set<Long> userIds) {
-        Set<User> users = new HashSet<>();
-        userIds.forEach(userId -> users.add(getById(userId)));
-        return Optional.of(users);
     }
 
     @Override

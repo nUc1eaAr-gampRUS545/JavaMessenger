@@ -77,7 +77,9 @@ public class PostServiceImpl implements PostService {
         }
         User creator = userService.findById(creatorId);
         Post post = postMapper.toEntity(request);
+        post.setCreatedAt(LocalDateTime.now());
         post.setCreator(creator);
+        post.setStatus(PostStatus.PUBLISHED);
 
         Post result = postRepository.save(post)
                 .orElseThrow(() -> new PostException("Не удалось создать пост"));
@@ -121,6 +123,16 @@ public class PostServiceImpl implements PostService {
 
 
         post.setStatus(PostStatus.ARCHIVED);
+        post.setUpdatedAt(LocalDateTime.now());
+        postRepository.update(post);
+    }
+
+    @Override
+    @Transactional
+    public void adminDeletePostById(Long postId) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new PostException.PostNotFoundException(postId));
+        post.setStatus(PostStatus.DELETED_BY_ADMIN);
         post.setUpdatedAt(LocalDateTime.now());
         postRepository.update(post);
     }

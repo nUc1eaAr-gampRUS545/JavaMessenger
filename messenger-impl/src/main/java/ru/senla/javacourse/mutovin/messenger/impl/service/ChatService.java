@@ -14,7 +14,7 @@ public interface ChatService {
     ChatDto createPrivateChat(Long userId1,Long userId2);
     void deleteChat(Long chatId,Long userId);
     ChatDto addParticipant(Long chatId,Long userId);
-    ChatDto removeParticipant(Long chatId,Long userId);
+    void removeParticipant(Long chatId,Long userId);
     ChatDto makeAdmin(Long chatId,Long userId);
     ChatDto removeAdmin(Long chatId,Long userId);
     List<ChatDto> getUserChats(Long userId);

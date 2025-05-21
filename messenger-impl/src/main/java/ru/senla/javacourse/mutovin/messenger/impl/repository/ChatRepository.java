@@ -8,7 +8,6 @@ import java.util.Set;
 
 public interface ChatRepository extends GenericRepository<Chat, Long> {
     Optional<Chat> findChatById(Long id, Long userId);
-    Optional<List<Chat>> findByCreatorId(Long creatorId);
     Optional<List<Chat>> findByParticipantId(Long participantId);
     Optional<Chat> findPrivateChatByParticipants(Long userId1, Long userId2);
     Optional<Chat> update(Chat chat);

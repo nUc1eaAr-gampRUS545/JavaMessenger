@@ -13,6 +13,5 @@ public interface MessageRepository extends GenericRepository<Message, Long> {
     Optional<List<Message>> findByChatIdAndStatus(Long chatId, MessageStatus status);
     Optional<Message> update(Message message);
     Optional<List<Message>> findUnreadMessagesByUserId(Long userId);
-    Optional<List<Message>> findMessagesByChatIdAndUserId(Long chatId, Long userId);
     Optional<Set<Message>> findAllByMessageIds(Set<Long> messageIds);
 } 

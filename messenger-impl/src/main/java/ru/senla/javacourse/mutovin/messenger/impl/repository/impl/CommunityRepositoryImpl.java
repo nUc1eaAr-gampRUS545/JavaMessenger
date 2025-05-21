@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+import ru.senla.javacourse.mutovin.messenger.db.entity.Chat;
 import ru.senla.javacourse.mutovin.messenger.db.entity.Community;
 import ru.senla.javacourse.mutovin.messenger.db.entity.Post;
 import ru.senla.javacourse.mutovin.messenger.db.entity.User;
@@ -91,8 +92,7 @@ public class CommunityRepositoryImpl implements CommunityRepository {
     public Optional<Community> findById(Long id) {
         try (Session session = getSession()) {
             Community community = session.get(Community.class,id);
-
-            return Optional.ofNullable(community);
+            return Optional.of(community);
         }
     }
 
@@ -120,10 +120,20 @@ public class CommunityRepositoryImpl implements CommunityRepository {
     public void deleteById(Long id) {
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();
-            Community community = session.get(Community.class,id);
-            if (community!=null) {
+
+            Community community = session.get(Community.class, id);
+            if (community != null) {
+                Query<?> deletePostCommunity = session.createQuery(
+                        "DELETE FROM PostCommunity pc WHERE pc.community.id = :id");
+                deletePostCommunity.setParameter("id", id);
+                deletePostCommunity.executeUpdate();
+                Query<?> deleteSubscribes = session.createQuery(
+                        "DELETE FROM Subscribe s WHERE s.community.id = :id");
+                deleteSubscribes.setParameter("id", id);
+                deleteSubscribes.executeUpdate();
                 session.delete(community);
             }
+
             transaction.commit();
         }
     }

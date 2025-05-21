@@ -3,8 +3,8 @@ package ru.senla.javacourse.mutovin.messenger.api.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
-import ru.senla.javacourse.mutovin.messenger.api.dto.MessageStatus;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.MessageCreateRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.MessageUpdateRequest;
 
@@ -28,7 +28,6 @@ public interface MessageController {
     ResponseEntity<?> getUnreadMessages(@PathVariable Long userId);
 
     ResponseEntity<?> getMessageById(@PathVariable Long messageId);
-
 
     ResponseEntity<?> getMessagesByIds(@RequestBody Set<Long> messageIds);
 }

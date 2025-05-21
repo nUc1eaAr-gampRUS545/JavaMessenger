@@ -46,14 +46,15 @@ public class ChatRepositoryImpl implements ChatRepository {
     }
 
     @Override
-    public Optional<Chat> findChatById(Long id,Long userId) {
+    public Optional<Chat> findChatById(Long id, Long userId) {
         try (Session session = getSession()) {
             String hql = "FROM Chat c JOIN FETCH c.participants p WHERE c.id = :id AND p.id = :userId";
-            Query<Chat> query = session.createQuery(hql,Chat.class)
-                    .setParameter("userId",userId)
-                    .setParameter("id",id);
-            return Optional.ofNullable((Chat) query);
+            Query<Chat> query = session.createQuery(hql, Chat.class)
+                    .setParameter("id", id)
+                    .setParameter("userId", userId);
 
+            Chat result = query.uniqueResult();
+            return Optional.ofNullable(result);
         }
     }
 
@@ -93,15 +94,15 @@ public class ChatRepositoryImpl implements ChatRepository {
         }
     }
 
-    @Override
-    public Optional<List<Chat>> findByCreatorId(Long creatorId) {
-        try (Session session = getSession()) {
-            String hql = "FROM Chat c WHERE c.creator.id = :creatorId ORDER BY c.createdAt DESC";
-            Query<Chat> query = session.createQuery(hql,Chat.class)
-                    .setParameter("creatorId",creatorId);
-            return Optional.ofNullable(query.list());
-        }
-    }
+//    @Override
+//    public Optional<List<Chat>> findByCreatorId(Long creatorId) {
+//        try (Session session = getSession()) {
+//            String hql = "FROM Chat c WHERE c.creator.id = :creatorId ORDER BY c.createdAt DESC";
+//            Query<Chat> query = session.createQuery(hql,Chat.class)
+//                    .setParameter("creatorId",creatorId);
+//            return Optional.ofNullable(query.list());
+//        }
+//    }
 
     @Override
     public Optional<List<Chat>> findByParticipantId(Long participantId) {

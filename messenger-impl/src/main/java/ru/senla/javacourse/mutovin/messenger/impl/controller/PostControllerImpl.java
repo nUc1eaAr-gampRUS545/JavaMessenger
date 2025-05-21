@@ -143,7 +143,7 @@ public class PostControllerImpl implements PostController {
                                         @Parameter(description = "ID поста") @PathVariable Long postId) {
         User person = userService.findByUsername(userDetails.getUsername());
         if (person.getRole().equals(Role.ROLE_ADMIN)) {
-            postService.deletePostById(postId,person.getId());
+            postService.adminDeletePostById(postId);
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();

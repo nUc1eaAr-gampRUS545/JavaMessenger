@@ -11,8 +11,6 @@ public interface UserRepository extends GenericRepository<User, Long> {
     boolean existsByUsername(String username);
     boolean existsByEmail(String email);
     void deleteById(Long id);
-    Optional<Set<User>> findAllByUserIds(Set<Long> userIds);
     Optional<List<User>> findAll();
-    Optional<User> update(User user);
     Optional<List<User>> filterUsers(String firstName, String lastName, Integer age, String gender);
 }

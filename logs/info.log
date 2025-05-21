@@ -308,3 +308,1161 @@
 2025-05-21 18:51:34 [RMI TCP Connection(5)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2025-05-21 18:51:34 [RMI TCP Connection(5)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
 2025-05-21 18:51:39 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 19:10:49 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-21 19:10:49 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 22140 (C:\Users\tanki\pet-projects\JavaMessenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\JavaMessenger)
+2025-05-21 19:10:49 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-21 19:10:54 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-21 19:10:54 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-21 19:10:54 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2025-05-21 19:10:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-21 19:10:56 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-21 19:10:56 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-21 19:10:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-21 19:10:56 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-21 19:10:56 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6613 ms
+2025-05-21 19:10:57 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-21 19:10:57 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-21 19:10:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-21 19:10:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 19:10:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-21 19:10:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-21 19:10:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-21 19:11:02 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2b57dc2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 19:11:07 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-21 19:11:08 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@31906cb2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@207fce87, org.springframework.security.web.context.SecurityContextHolderFilter@12f85dc8, org.springframework.security.web.header.HeaderWriterFilter@3c6c87fa, org.springframework.web.filter.CorsFilter@67171221, org.springframework.security.web.authentication.logout.LogoutFilter@2f0b7b6d, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@70eced1f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b8d0c21, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@54a04eae, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2f3a3fec, org.springframework.security.web.session.SessionManagementFilter@e7b7395, org.springframework.security.web.access.ExceptionTranslationFilter@4ce66169, org.springframework.security.web.access.intercept.AuthorizationFilter@746cb25d]
+2025-05-21 19:11:11 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-05-21 19:11:11 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 19:11:11 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 19:11:11 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747843871861
+2025-05-21 19:11:14 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2025-05-21 19:11:14 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 19:11:14 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 19:11:14 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 19:11:15 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-21 19:11:15 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-21 19:11:15 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 27.367 seconds (process running for 31.861)
+2025-05-21 19:11:17 [RMI TCP Connection(4)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-21 19:11:17 [RMI TCP Connection(4)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-21 19:11:17 [RMI TCP Connection(4)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2025-05-21 19:16:53 [http-nio-8080-exec-1] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2025-05-21 19:16:53 [http-nio-8080-exec-1] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2025-05-21 19:16:53 [http-nio-8080-exec-1] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 19:16:53 [http-nio-8080-exec-1] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 19:16:53 [http-nio-8080-exec-1] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747844213878
+2025-05-21 19:16:54 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: 5L6g3nShT-eMCtK--X86sw
+2025-05-21 19:16:54 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 1 with epoch 0
+2025-05-21 19:26:10 [kafka-producer-network-thread | producer-1] INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Node -1 disconnected.
+2025-05-21 19:29:20 [SpringApplicationShutdownHook] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-05-21 19:29:20 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 19:29:20 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 19:29:20 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 19:29:20 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+2025-05-21 19:29:21 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 19:30:12 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-21 19:30:13 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 8980 (C:\Users\tanki\pet-projects\JavaMessenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\JavaMessenger)
+2025-05-21 19:30:13 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-21 19:30:18 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-21 19:30:18 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-21 19:30:18 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-05-21 19:30:23 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-21 19:30:23 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-21 19:30:23 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-21 19:30:23 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-21 19:30:24 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-21 19:30:24 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 10970 ms
+2025-05-21 19:30:24 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-21 19:30:26 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-21 19:30:26 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-21 19:30:26 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 19:30:26 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-21 19:30:26 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-21 19:30:26 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-21 19:30:27 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-21 19:30:28 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 1312 (C:\Users\tanki\pet-projects\JavaMessenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\JavaMessenger)
+2025-05-21 19:30:28 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-21 19:30:33 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-21 19:30:33 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-21 19:30:33 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2025-05-21 19:30:34 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4ce9985f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 19:30:36 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-21 19:30:36 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-21 19:30:36 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-21 19:30:36 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-21 19:30:36 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-21 19:30:36 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8228 ms
+2025-05-21 19:30:37 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-21 19:30:38 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-21 19:30:38 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-21 19:30:38 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 19:30:38 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-21 19:30:38 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-21 19:30:38 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-21 19:30:39 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-21 19:30:40 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@474a63d9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1b8d0c21, org.springframework.security.web.context.SecurityContextHolderFilter@8d40f07, org.springframework.security.web.header.HeaderWriterFilter@40941b54, org.springframework.web.filter.CorsFilter@54a04eae, org.springframework.security.web.authentication.logout.LogoutFilter@4ce66169, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@6b78cbee, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@307ca947, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@61d1315b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4664fef, org.springframework.security.web.session.SessionManagementFilter@704c3ca2, org.springframework.security.web.access.ExceptionTranslationFilter@6b28d4e4, org.springframework.security.web.access.intercept.AuthorizationFilter@383c94ed]
+2025-05-21 19:30:43 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-05-21 19:30:44 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 19:30:44 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 19:30:44 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747845044265
+2025-05-21 19:30:45 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@468dbd07] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 19:30:46 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2025-05-21 19:30:46 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 19:30:46 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 19:30:46 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 19:30:46 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-21 19:30:46 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-21 19:30:46 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 34.783 seconds (process running for 37.57)
+2025-05-21 19:30:49 [RMI TCP Connection(9)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-21 19:30:49 [RMI TCP Connection(9)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-21 19:30:49 [RMI TCP Connection(9)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-05-21 19:30:54 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-21 19:30:56 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@40f49d72, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@522fdf0c, org.springframework.security.web.context.SecurityContextHolderFilter@68f67bbd, org.springframework.security.web.header.HeaderWriterFilter@d15f98a, org.springframework.web.filter.CorsFilter@64a009e7, org.springframework.security.web.authentication.logout.LogoutFilter@76480730, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@5292d417, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65c040c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11736ebc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10587ce5, org.springframework.security.web.session.SessionManagementFilter@6d4bdb75, org.springframework.security.web.access.ExceptionTranslationFilter@17734113, org.springframework.security.web.access.intercept.AuthorizationFilter@26169be3]
+2025-05-21 19:30:58 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-05-21 19:30:58 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 19:30:58 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 19:30:58 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747845058392
+2025-05-21 19:30:59 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2025-05-21 19:30:59 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 19:30:59 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 19:30:59 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 19:30:59 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-21 19:30:59 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 19:40:06 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-21 19:40:06 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 22124 (C:\Users\tanki\pet-projects\JavaMessenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\JavaMessenger)
+2025-05-21 19:40:06 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-21 19:40:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-21 19:40:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-21 19:40:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2025-05-21 19:40:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-21 19:40:12 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-21 19:40:12 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-21 19:40:12 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-21 19:40:12 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-21 19:40:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6142 ms
+2025-05-21 19:40:13 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-21 19:40:14 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-21 19:40:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-21 19:40:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 19:40:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-21 19:40:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-21 19:40:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-21 19:40:19 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@238cac6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 19:40:22 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-21 19:40:23 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b09fcda, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5cf4c93, org.springframework.security.web.context.SecurityContextHolderFilter@6d3b59e2, org.springframework.security.web.header.HeaderWriterFilter@60035f1e, org.springframework.web.filter.CorsFilter@55cd41f7, org.springframework.security.web.authentication.logout.LogoutFilter@10fef6da, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@5b084c4c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76480730, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@405a296e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ff30a75, org.springframework.security.web.session.SessionManagementFilter@7f9083b4, org.springframework.security.web.access.ExceptionTranslationFilter@797a5b31, org.springframework.security.web.access.intercept.AuthorizationFilter@45c57dbd]
+2025-05-21 19:40:25 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-05-21 19:40:25 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 19:40:25 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 19:40:25 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747845625871
+2025-05-21 19:40:27 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2025-05-21 19:40:27 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 19:40:27 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 19:40:27 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 19:40:27 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-21 19:40:27 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-21 19:40:27 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 22.089 seconds (process running for 24.766)
+2025-05-21 19:40:28 [RMI TCP Connection(3)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-21 19:40:28 [RMI TCP Connection(3)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-21 19:40:29 [RMI TCP Connection(3)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1319 ms
+2025-05-21 19:41:17 [http-nio-8080-exec-3] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 873 ms
+2025-05-21 19:49:09 [http-nio-8080-exec-4] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2025-05-21 19:49:09 [http-nio-8080-exec-4] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2025-05-21 19:49:09 [http-nio-8080-exec-4] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 19:49:09 [http-nio-8080-exec-4] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 19:49:09 [http-nio-8080-exec-4] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747846149823
+2025-05-21 19:49:10 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: 5L6g3nShT-eMCtK--X86sw
+2025-05-21 19:49:10 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 2 with epoch 0
+2025-05-21 19:55:23 [SpringApplicationShutdownHook] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-05-21 19:55:23 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 19:55:23 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 19:55:23 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 19:55:23 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+2025-05-21 19:55:23 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 19:57:12 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-21 19:57:12 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 19304 (C:\Users\tanki\pet-projects\JavaMessenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\JavaMessenger)
+2025-05-21 19:57:12 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-21 19:57:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-21 19:57:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-21 19:57:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2025-05-21 19:57:19 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-21 19:57:19 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-21 19:57:19 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-21 19:57:19 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-21 19:57:19 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-21 19:57:19 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7165 ms
+2025-05-21 19:57:20 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-21 19:57:21 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-21 19:57:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-21 19:57:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 19:57:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-21 19:57:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-21 19:57:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-21 19:57:25 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@8eda949] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 19:57:29 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-21 19:57:30 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@56f3f9da, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56587330, org.springframework.security.web.context.SecurityContextHolderFilter@53d0cf4d, org.springframework.security.web.header.HeaderWriterFilter@50a1c2f3, org.springframework.web.filter.CorsFilter@227cba85, org.springframework.security.web.authentication.logout.LogoutFilter@74a37c91, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@1bad5ab3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d7645b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72e4905c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19e552a3, org.springframework.security.web.session.SessionManagementFilter@2459715c, org.springframework.security.web.access.ExceptionTranslationFilter@3d0c88f4, org.springframework.security.web.access.intercept.AuthorizationFilter@3e37c38f]
+2025-05-21 19:57:32 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-05-21 19:57:32 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 19:57:32 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 19:57:32 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747846652437
+2025-05-21 19:57:33 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2025-05-21 19:57:33 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 19:57:33 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 19:57:33 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 19:57:33 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-21 19:57:33 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-21 19:57:33 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 22.644 seconds (process running for 26.544)
+2025-05-21 19:57:34 [RMI TCP Connection(6)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-21 19:57:34 [RMI TCP Connection(6)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-21 19:57:34 [RMI TCP Connection(6)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-05-21 20:11:00 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 20:11:30 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-21 20:11:30 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 1964 (C:\Users\tanki\pet-projects\JavaMessenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\JavaMessenger)
+2025-05-21 20:11:30 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-21 20:11:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-21 20:11:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-21 20:11:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2025-05-21 20:11:37 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-21 20:11:37 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-21 20:11:37 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-21 20:11:37 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-21 20:11:38 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-21 20:11:38 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7316 ms
+2025-05-21 20:11:38 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-21 20:11:39 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-21 20:11:39 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-21 20:11:39 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 20:11:39 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-21 20:11:39 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-21 20:11:39 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-21 20:11:44 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@48c584c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 20:11:49 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-21 20:11:52 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@f573dcb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f636de3, org.springframework.security.web.context.SecurityContextHolderFilter@1dc47df3, org.springframework.security.web.header.HeaderWriterFilter@17734113, org.springframework.web.filter.CorsFilter@40f49d72, org.springframework.security.web.authentication.logout.LogoutFilter@6d3b59e2, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@5292d417, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68f67bbd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5bd585a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@522fdf0c, org.springframework.security.web.session.SessionManagementFilter@61fb3dae, org.springframework.security.web.access.ExceptionTranslationFilter@34d776eb, org.springframework.security.web.access.intercept.AuthorizationFilter@353aadd7]
+2025-05-21 20:11:54 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-05-21 20:11:54 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 20:11:54 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 20:11:54 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747847514654
+2025-05-21 20:11:56 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2025-05-21 20:11:56 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 20:11:56 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 20:11:56 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 20:11:56 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-21 20:11:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-21 20:11:56 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 27.638 seconds (process running for 30.513)
+2025-05-21 20:11:57 [RMI TCP Connection(7)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-21 20:11:57 [RMI TCP Connection(7)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-21 20:11:57 [RMI TCP Connection(7)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-05-21 20:40:07 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 20:43:21 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-21 20:43:21 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 23120 (C:\Users\tanki\pet-projects\JavaMessenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\JavaMessenger)
+2025-05-21 20:43:21 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-21 20:43:26 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-21 20:43:26 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-21 20:43:26 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 0 Redis repository interfaces.
+2025-05-21 20:43:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-21 20:43:28 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-21 20:43:28 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-21 20:43:28 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-21 20:43:29 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-21 20:43:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7375 ms
+2025-05-21 20:43:32 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-21 20:43:34 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-21 20:43:35 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-21 20:43:35 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 20:43:35 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-21 20:43:35 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-21 20:43:35 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-21 20:43:41 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5ea50a98] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 20:43:47 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-21 20:43:48 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1766b7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56f3f9da, org.springframework.security.web.context.SecurityContextHolderFilter@4ce66169, org.springframework.security.web.header.HeaderWriterFilter@5aad4194, org.springframework.web.filter.CorsFilter@56587330, org.springframework.security.web.authentication.logout.LogoutFilter@10587ce5, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@45c270f9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c6c87fa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d7645b2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@227cba85, org.springframework.security.web.session.SessionManagementFilter@5ed83e36, org.springframework.security.web.access.ExceptionTranslationFilter@4a03c4bc, org.springframework.security.web.access.intercept.AuthorizationFilter@33dcbdc2]
+2025-05-21 20:43:51 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-05-21 20:43:52 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 20:43:52 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 20:43:52 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747849432030
+2025-05-21 20:43:53 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2025-05-21 20:43:53 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 20:43:53 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 20:43:53 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 20:43:53 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-21 20:43:53 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-21 20:43:53 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 33.523 seconds (process running for 36.478)
+2025-05-21 20:43:54 [RMI TCP Connection(3)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-21 20:43:54 [RMI TCP Connection(3)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-21 20:43:54 [RMI TCP Connection(3)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2025-05-21 20:47:14 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 20:48:06 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-21 20:48:06 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 11896 (C:\Users\tanki\pet-projects\JavaMessenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\JavaMessenger)
+2025-05-21 20:48:06 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-21 20:48:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-21 20:48:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-21 20:48:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-05-21 20:48:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-21 20:48:17 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-21 20:48:17 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-21 20:48:17 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-21 20:48:18 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-21 20:48:18 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 11666 ms
+2025-05-21 20:48:19 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-21 20:48:21 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-21 20:48:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-21 20:48:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 20:48:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-21 20:48:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-21 20:48:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-21 20:48:30 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@75cfb958] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 20:48:37 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-21 20:48:39 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@142422a4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c9cd930, org.springframework.security.web.context.SecurityContextHolderFilter@5eb974, org.springframework.security.web.header.HeaderWriterFilter@41f05f1, org.springframework.web.filter.CorsFilter@5dcbdcb9, org.springframework.security.web.authentication.logout.LogoutFilter@377bc8da, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@58052571, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10faebc9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3927de0e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4dd31687, org.springframework.security.web.session.SessionManagementFilter@2f6bb6d8, org.springframework.security.web.access.ExceptionTranslationFilter@95f61c2, org.springframework.security.web.access.intercept.AuthorizationFilter@511f21f9]
+2025-05-21 20:48:42 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-05-21 20:48:42 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 20:48:42 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 20:48:42 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747849722612
+2025-05-21 20:48:43 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2025-05-21 20:48:43 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 20:48:43 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 20:48:43 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 20:48:43 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-21 20:48:43 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-21 20:48:43 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 39.555 seconds (process running for 43.831)
+2025-05-21 20:49:00 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-21 20:49:00 [main] INFO  r.s.j.m.m.a.MessengerApplication - Starting MessengerApplication using Java 17.0.12 with PID 3876 (C:\Users\tanki\pet-projects\JavaMessenger\messenger-application\target\classes started by tanki in C:\Users\tanki\pet-projects\JavaMessenger)
+2025-05-21 20:49:00 [main] INFO  r.s.j.m.m.a.MessengerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-21 20:49:04 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-21 20:49:04 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-21 20:49:04 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2025-05-21 20:49:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-21 20:49:06 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-21 20:49:06 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-21 20:49:06 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-21 20:49:06 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-21 20:49:06 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5774 ms
+2025-05-21 20:49:07 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-05-21 20:49:07 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-21 20:49:08 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2025-05-21 20:49:08 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 20:49:08 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=qwerty, user=postgres}
+2025-05-21 20:49:08 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2025-05-21 20:49:08 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-05-21 20:49:13 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]
+2025-05-21 20:49:13 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@fcee97c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 20:49:26 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-21 20:49:27 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@150eab74, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d2dc60, org.springframework.security.web.context.SecurityContextHolderFilter@33dcbdc2, org.springframework.security.web.header.HeaderWriterFilter@10587ce5, org.springframework.web.filter.CorsFilter@43f670f3, org.springframework.security.web.authentication.logout.LogoutFilter@6a4d72bd, ru.senla.javacourse.mutovin.messenger.impl.utils.JwtAuthenticationFilter@7649d350, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f0b7b6d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1766b7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6311640d, org.springframework.security.web.session.SessionManagementFilter@1313dea8, org.springframework.security.web.access.ExceptionTranslationFilter@522fdf0c, org.springframework.security.web.access.intercept.AuthorizationFilter@5f49c09d]
+2025-05-21 20:49:30 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-05-21 20:49:30 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.2
+2025-05-21 20:49:30 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: c4deed513057c94e
+2025-05-21 20:49:30 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1747849770549
+2025-05-21 20:49:31 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2025-05-21 20:49:31 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-05-21 20:49:31 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-05-21 20:49:31 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-05-21 20:49:31 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-21 20:49:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-21 20:49:31 [main] INFO  r.s.j.m.m.a.MessengerApplication - Started MessengerApplication in 32.931 seconds (process running for 35.789)
+2025-05-21 20:49:32 [RMI TCP Connection(6)-172.25.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-21 20:49:32 [RMI TCP Connection(6)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-21 20:49:32 [RMI TCP Connection(6)-172.25.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-05-21 20:54:47 [SpringApplicationShutdownHook] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:6666/messenger]

@@ -7,6 +7,4 @@ import java.util.List;
 public interface PostCommunityRepository extends GenericRepository<PostCommunity, Long> {
 
     List<PostCommunity> findByUserId(Long communityId);
-
-    void deleteByPostIdAndCommunityId(Long postId,Long communityId);
 }

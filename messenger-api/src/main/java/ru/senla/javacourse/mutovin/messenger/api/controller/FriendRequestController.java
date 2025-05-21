@@ -4,9 +4,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PathVariable;
-import ru.senla.javacourse.mutovin.messenger.api.dto.FriendRequestDto;
-
-import java.util.List;
 
 public interface FriendRequestController {
     ResponseEntity<?> sendRequest(@AuthenticationPrincipal UserDetails userDetails,@PathVariable Long receiverId);

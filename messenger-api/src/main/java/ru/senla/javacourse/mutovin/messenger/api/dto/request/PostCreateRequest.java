@@ -27,12 +27,4 @@ public class PostCreateRequest implements Serializable {
     @Schema(description = "Содержимое поста", example = "Это содержимое моего первого поста...", requiredMode = Schema.RequiredMode.REQUIRED)
     private String content;
 
-//    public Post toEntity(){
-//        Post post = new Post();
-//        post.setContent(content);
-//        post.setCreatedAt(LocalDateTime.now());
-//        post.setTitle(title);
-//        post.setStatus(PostStatus.PUBLISHED);
-//        return post;
-//    }
 }

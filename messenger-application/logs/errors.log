@@ -1,0 +1,213 @@
+2025-05-21 22:45:44 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000
+2025-05-21 22:45:44 [main] ERROR o.s.b.w.e.tomcat.TomcatStarter - Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtAuthenticationFilter' defined in URL [jar:file:/C:/Users/tanki/.m2/repository/ru/senla/javacourse/mutovin/messenger-impl/0.0.1-SNAPSHOT/messenger-impl-0.0.1-SNAPSHOT.jar!/ru/senla/javacourse/mutovin/messenger/impl/utils/JwtAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'userServiceImpl' defined in URL [jar:file:/C:/Users/tanki/.m2/repository/ru/senla/javacourse/mutovin/messenger-impl/0.0.1-SNAPSHOT/messenger-impl-0.0.1-SNAPSHOT.jar!/ru/senla/javacourse/mutovin/messenger/impl/service/impl/UserServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepositoryImpl' defined in URL [jar:file:/C:/Users/tanki/.m2/repository/ru/senla/javacourse/mutovin/messenger-impl/0.0.1-SNAPSHOT/messenger-impl-0.0.1-SNAPSHOT.jar!/ru/senla/javacourse/mutovin/messenger/impl/repository/impl/UserRepositoryImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'sessionFactory' defined in class path resource [ru/senla/javacourse/mutovin/messenger/impl/config/HibernateConfig.class]: Failed to instantiate [org.hibernate.SessionFactory]: Factory method 'sessionFactory' threw exception with message: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Error calling Driver.connect() [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [n/a]
+2025-05-21 22:45:45 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:165)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at ru.senla.javacourse.mutovin.messenger.application.MessengerApplication.main(MessengerApplication.java:16)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:145)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:105)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:499)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	... 8 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'jwtAuthenticationFilter' defined in URL [jar:file:/C:/Users/tanki/.m2/repository/ru/senla/javacourse/mutovin/messenger-impl/0.0.1-SNAPSHOT/messenger-impl-0.0.1-SNAPSHOT.jar!/ru/senla/javacourse/mutovin/messenger/impl/utils/JwtAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'userServiceImpl' defined in URL [jar:file:/C:/Users/tanki/.m2/repository/ru/senla/javacourse/mutovin/messenger-impl/0.0.1-SNAPSHOT/messenger-impl-0.0.1-SNAPSHOT.jar!/ru/senla/javacourse/mutovin/messenger/impl/service/impl/UserServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepositoryImpl' defined in URL [jar:file:/C:/Users/tanki/.m2/repository/ru/senla/javacourse/mutovin/messenger-impl/0.0.1-SNAPSHOT/messenger-impl-0.0.1-SNAPSHOT.jar!/ru/senla/javacourse/mutovin/messenger/impl/repository/impl/UserRepositoryImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'sessionFactory' defined in class path resource [ru/senla/javacourse/mutovin/messenger/impl/config/HibernateConfig.class]: Failed to instantiate [org.hibernate.SessionFactory]: Factory method 'sessionFactory' threw exception with message: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Error calling Driver.connect() [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [n/a]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:173)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:168)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:153)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4880)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:148)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:148)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:437)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126)
+	... 13 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl' defined in URL [jar:file:/C:/Users/tanki/.m2/repository/ru/senla/javacourse/mutovin/messenger-impl/0.0.1-SNAPSHOT/messenger-impl-0.0.1-SNAPSHOT.jar!/ru/senla/javacourse/mutovin/messenger/impl/service/impl/UserServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepositoryImpl' defined in URL [jar:file:/C:/Users/tanki/.m2/repository/ru/senla/javacourse/mutovin/messenger-impl/0.0.1-SNAPSHOT/messenger-impl-0.0.1-SNAPSHOT.jar!/ru/senla/javacourse/mutovin/messenger/impl/repository/impl/UserRepositoryImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'sessionFactory' defined in class path resource [ru/senla/javacourse/mutovin/messenger/impl/config/HibernateConfig.class]: Failed to instantiate [org.hibernate.SessionFactory]: Factory method 'sessionFactory' threw exception with message: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Error calling Driver.connect() [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [n/a]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 54 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userRepositoryImpl' defined in URL [jar:file:/C:/Users/tanki/.m2/repository/ru/senla/javacourse/mutovin/messenger-impl/0.0.1-SNAPSHOT/messenger-impl-0.0.1-SNAPSHOT.jar!/ru/senla/javacourse/mutovin/messenger/impl/repository/impl/UserRepositoryImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'sessionFactory' defined in class path resource [ru/senla/javacourse/mutovin/messenger/impl/config/HibernateConfig.class]: Failed to instantiate [org.hibernate.SessionFactory]: Factory method 'sessionFactory' threw exception with message: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Error calling Driver.connect() [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [n/a]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 68 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [ru/senla/javacourse/mutovin/messenger/impl/config/HibernateConfig.class]: Failed to instantiate [org.hibernate.SessionFactory]: Factory method 'sessionFactory' threw exception with message: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Error calling Driver.connect() [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [n/a]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 82 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.hibernate.SessionFactory]: Factory method 'sessionFactory' threw exception with message: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Error calling Driver.connect() [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [n/a]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
+	... 96 common frames omitted
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Error calling Driver.connect() [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [n/a]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:129)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:449)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:101)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:966)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1016)
+	at ru.senla.javacourse.mutovin.messenger.impl.config.HibernateConfig.sessionFactory(HibernateConfig.java:11)
+	at ru.senla.javacourse.mutovin.messenger.impl.config.HibernateConfig$$SpringCGLIB$$0.CGLIB$sessionFactory$0(<generated>)
+	at ru.senla.javacourse.mutovin.messenger.impl.config.HibernateConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at ru.senla.javacourse.mutovin.messenger.impl.config.HibernateConfig$$SpringCGLIB$$0.sessionFactory(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 97 common frames omitted
+Caused by: org.hibernate.exception.GenericJDBCException: Error calling Driver.connect() [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000] [n/a]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:135)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:43)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:500)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:373)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:551)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:102)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:82)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:406)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:277)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:124)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:78)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	... 117 common frames omitted
+Caused by: org.postgresql.util.PSQLException: FATAL: database "messenger" does not exist
+  Местонахождение: Файл postinit.c, Процедура: InitPostgres, Строка: 878
+  SQLState сервера: 3D000
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
+	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2845)
+	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+	at org.postgresql.Driver.makeConnection(Driver.java:446)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:40)
+	... 133 common frames omitted

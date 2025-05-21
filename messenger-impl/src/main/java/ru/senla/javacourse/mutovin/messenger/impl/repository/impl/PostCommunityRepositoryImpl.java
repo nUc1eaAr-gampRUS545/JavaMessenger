@@ -33,19 +33,6 @@ public class PostCommunityRepositoryImpl implements PostCommunityRepository {
     }
 
     @Override
-    public void deleteByPostIdAndCommunityId(Long postId,Long communityId) {
-        try (Session session = getSession()) {
-            Transaction transaction = session.beginTransaction();
-            Query<?> query = session.createQuery(
-                    "DELETE FROM PostCommunity pc WHERE pc.post.id = :postId AND pc.community.id = :communityId");
-            query.setParameter("postId", postId);
-            query.setParameter("communityId", communityId);
-            query.executeUpdate();
-            transaction.commit();
-        }
-    }
-
-    @Override
     public Optional<PostCommunity> save(PostCommunity entity) {
         try (Session session = getSession()) {
             Transaction transaction = session.beginTransaction();

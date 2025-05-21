@@ -16,12 +16,4 @@ public class CommunityCreateRequest {
     @Size(min = 2, max = 200, message = "Описание должно быть от 2 до 200 символов")
     private String description;
 
-//    public Community toEntity() {
-//        Community community = new Community();
-//        community.setName(name);
-//        community.setDescription(description);
-//        community.setCreatedAt(LocalDateTime.now());
-//        community.setUpdatedAt(LocalDateTime.now());
-//        return community;
-//    }
 }

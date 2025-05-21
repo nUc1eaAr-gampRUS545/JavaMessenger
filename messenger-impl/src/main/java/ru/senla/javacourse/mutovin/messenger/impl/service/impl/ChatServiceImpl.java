@@ -159,7 +159,7 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     @Transactional
-    public ChatDto removeParticipant(Long chatId,Long userId) {
+    public void removeParticipant(Long chatId,Long userId) {
         Chat chat = chatRepository.findById(chatId)
                 .orElseThrow(() -> new ChatException.ChatNotFoundException(chatId));
 
@@ -167,10 +167,8 @@ public class ChatServiceImpl implements ChatService {
                 .orElseThrow(() -> new ChatException.UserNotInChatException(userId,chatId));
 
         participant.setLeftAt(LocalDateTime.now());
-        chatParticipantRepository.update(participant)
-                .orElseThrow(() -> new ChatException("Failed to remove participant from chat"));
+        chatParticipantRepository.deleteById(participant.getId());
 
-        return chatMapper.map(chat);
     }
 
     @Override

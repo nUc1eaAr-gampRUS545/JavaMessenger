@@ -1,47 +1,48 @@
 # JavaMessenger
 
 ## Описание
-JavaMessenger - это современное веб-приложение для обмена сообщениями, построенное с использованием Spring Boot и Java.
 
-## Способы запуска
+JavaMessenger - это современное веб-приложение для обмена сообщениями, построенное с использованием Spring Boot и Java. [Ссылка на GitHub](https://github.com/nUc1eaAr-gampRUS545/JavaMessenger.git) - это современное веб-приложение для обмена сообщениями, построенное с использованием Spring Boot и Java.
 
-### 1. Запуск через Docker
-
-Для запуска приложения через Docker выполните следующие шаги:
+### Запуск приложения и остального окружения
 
 1. Запуск контейнеров:
+
+Запускает контейнеры с Redis, PosgreSQL, Kafka
+Для запуска приложения через Docker выполните следующие шаги:
+
 ```bash
-docker-compose up
+docker-compose up 
 ```
+
 2. Для сборки приложения оповещения:
+
 ```bash
-docker build -t app . 
+docker build -t app .
 ```
-### 2. Запуск локально
+
+3. Запуск непосредственно Java Messenger
 
 Для локального запуска приложения вам потребуется:
+
 - Java 17+
 - Maven
 - PostgreSQL (если используется база данных)
 
-1. Сборка проекта:
+1) Сборка проекта:
+
 ```bash
-mvn clean install
+mvn clean install -DskipTests
 ```
 
-2. Запуск приложения:
+2) Запуск приложения:
+
 ```bash
 mvn spring-boot:run -pl messenger-application
 ```
 
 Приложение будет доступно по адресу: http://localhost:8080
 
-### 3. Запуск в режиме разработки
-
-Для запуска в режиме разработки используйте:
-```bash
-mvn spring-boot:run
-```
 
 ## API документация
 
@@ -49,12 +50,13 @@ mvn spring-boot:run
 http://localhost:8080/swagger-ui/index.html
 
 ## Технологии
+
 - Spring Boot
 - Spring Security
 - JWT для аутентификации
 - Kafka
 - Redis
-- Flayway
+- Flyway
 - PostgreSQL
 - Maven
 - Docker
@@ -62,11 +64,12 @@ http://localhost:8080/swagger-ui/index.html
 
 ## Настройки
 
-Основные настройки приложения находятся в файле `application.properties` в модуле `messenger-application`.
+Основные настройки приложения находятся в файле `application.yaml` в модуле `messenger-impl`.
 
 ## Структура проекта
 
 Проект состоит из следующих модулей:
+
 - `messenger-api` - интерфейсы и модели
 - `messenger-impl` - реализация сервисов
 - `messenger-db` - конфигурация базы данных
@@ -79,6 +82,7 @@ http://localhost:8080/swagger-ui/index.html
 ## Тестирование
 
 Для запуска тестов используйте:
+
 ```bash
 mvn test
 ```

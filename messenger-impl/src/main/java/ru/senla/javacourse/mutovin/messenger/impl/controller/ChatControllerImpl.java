@@ -138,15 +138,15 @@ public class ChatControllerImpl implements ChatController {
             @ApiResponse(responseCode = "403", description = "Доступ запрещен"),
             @ApiResponse(responseCode = "404", description = "Чат или пользователь не найден")
     })
-    @DeleteMapping("/{chatId}/participants/{userId}")
+    @DeleteMapping("/{chatId}/participants")
     public ResponseEntity<?> removeParticipant(
             @AuthenticationPrincipal UserDetails userDetails,
             @Parameter(description = "ID чата") @PathVariable Long chatId) {
 
         Long currentUserId = userService.findByUsername(userDetails.getUsername()).getId();
-        ChatDto chat = chatService.removeParticipant(chatId,currentUserId);
+        chatService.removeParticipant(chatId,currentUserId);
         return ResponseEntity.ok(
-                SuccessResponse.builder().success(true).message("Участник успешно удален").data(chat).build());
+                SuccessResponse.builder().success(true).message("Участник успешно удален").build());
 
     }
 

@@ -13,6 +13,7 @@ public interface PostService {
     PostDto createPost(PostCreateRequest request,Long creatorId);
     PostDto findPostById(Long postId,Long currentUserId);
     List<PostDto> findAllPosts();
+    void adminDeletePostById(Long postId);
     void deletePostById(Long postId, Long currentUserId);
     boolean existsById(Long postId);
 }

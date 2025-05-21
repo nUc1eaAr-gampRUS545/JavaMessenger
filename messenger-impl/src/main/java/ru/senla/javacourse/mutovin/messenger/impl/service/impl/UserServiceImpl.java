@@ -1,7 +1,10 @@
 package ru.senla.javacourse.mutovin.messenger.impl.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -44,6 +47,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
+    @Caching(evict = {
+            @CacheEvict(value = "UserService::findByUsername", key = "#user.username", condition = "#user.username != null"),
+            @CacheEvict(value = "UserService::findByEmail", key = "#user.email", condition = "#user.email != null")
+    }, put = {
+            @CachePut(value = "UserService::findId", key = "#user.id")
+    })
     public User save(User user) {
         return userRepository.save(user).orElseThrow(() -> new UsernameNotFoundException("Пользователь не найден"));
     }
@@ -64,6 +73,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
+    @Caching(put = {
+            @CachePut(value = "UserService::findId",key = "#userId")
+    })
     public UserDto updateUserProfile(Long userId,UserUpdateRequest request) {
         User user = userRepository.findById(userId).
                 orElseThrow(() -> new UsernameNotFoundException("Пользователь с id = " + userId + " не найден!"));
@@ -74,7 +86,7 @@ public class UserServiceImpl implements UserService {
         user.setGender(Gender.valueOf(request.getGender()));
         user.setEmail(request.getEmail());
         user.setPhoneNumber(request.getPhonenumber());
-        User result = userRepository.update(user).orElseThrow(
+        User result = userRepository.save(user).orElseThrow(
                 () -> new RuntimeException("Не удалось обновить профиль"));
 
         return userMapper.map(result);
@@ -119,6 +131,7 @@ public class UserServiceImpl implements UserService {
         var username = SecurityContextHolder.getContext().getAuthentication().getName();
         return findByUsername(username);
     }
+
 
     public void getAdmin() {
         var user = getCurrentUser();

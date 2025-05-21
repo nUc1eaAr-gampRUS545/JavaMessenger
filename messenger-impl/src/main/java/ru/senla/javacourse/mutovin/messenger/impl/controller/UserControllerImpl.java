@@ -88,7 +88,7 @@ public class UserControllerImpl implements UserController {
     }
 
     @Override
-    @PutMapping("/me")
+    @PostMapping("/me")
     public ResponseEntity<?> updateMyProfile(
             @AuthenticationPrincipal UserDetails userDetails,
             @RequestBody UserUpdateRequest request

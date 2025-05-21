@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 import ru.senla.javacourse.mutovin.messenger.api.dto.CommunityDto;
 import ru.senla.javacourse.mutovin.messenger.api.dto.PostDto;
 import ru.senla.javacourse.mutovin.messenger.api.dto.UserDto;
@@ -38,6 +39,7 @@ public class CommunityServiceImpl implements CommunityService {
     @Transactional
     public CommunityDto createCommunity(CommunityCreateRequest request) {
         Community community = communityMapper.toEntity(request);
+        community.setCreatedAt(LocalDateTime.now());
         Community result = communityRepository.save(community)
                 .orElseThrow(() -> new IllegalArgumentException("Не удалось создать сообщество"));
         return communityMapper.map(result);
@@ -70,6 +72,7 @@ public class CommunityServiceImpl implements CommunityService {
         community.setName(request.getName());
         community.setDescription(request.getDescription());
         community.setId(id);
+        community.setUpdatedAt(LocalDateTime.now());
         Community result = communityRepository.update(community)
                 .orElseThrow(() -> new IllegalArgumentException("Не удалось обновить сообщество"));
         return communityMapper.map(result);
@@ -112,6 +115,8 @@ public class CommunityServiceImpl implements CommunityService {
                 .orElseThrow(() -> new ResourceNotFoundException("Community not found"));
         Post post = postMapper.toEntity(request);
         post.setCreator(user);
+        post.setStatus(PostStatus.PUBLISHED);
+        post.setCreatedAt(LocalDateTime.now());
         Post resultPost = postRepository.save(post)
                 .orElseThrow(() -> new IllegalArgumentException("Не удалось сохранить пост"));
 
