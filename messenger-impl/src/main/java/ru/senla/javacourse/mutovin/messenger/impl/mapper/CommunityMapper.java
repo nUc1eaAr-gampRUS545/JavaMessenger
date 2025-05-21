@@ -9,7 +9,6 @@ import ru.senla.javacourse.mutovin.messenger.db.entity.Community;
 
 @Mapper(componentModel = "spring")
 public interface CommunityMapper {
-    CommunityMapper INSTANCE = Mappers.getMapper(CommunityMapper.class);
 
     @Mapping(target = "id", ignore = true)
     CommunityDto map(Community source);

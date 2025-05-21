@@ -14,7 +14,6 @@ import ru.senla.javacourse.mutovin.messenger.impl.exception.ResourceNotFoundExce
 import ru.senla.javacourse.mutovin.messenger.impl.mapper.CommunityMapper;
 import ru.senla.javacourse.mutovin.messenger.impl.mapper.PostMapper;
 import ru.senla.javacourse.mutovin.messenger.impl.mapper.UserMapper;
-//import ru.senla.javacourse.mutovin.messenger.impl.repository.CommunityRepository;
 import ru.senla.javacourse.mutovin.messenger.impl.repository.*;
 import ru.senla.javacourse.mutovin.messenger.impl.service.CommunityService;
 

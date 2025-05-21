@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.SignInRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.request.SignUpRequest;
 import ru.senla.javacourse.mutovin.messenger.api.dto.response.JwtAuthenticationResponse;
+import ru.senla.javacourse.mutovin.messenger.db.entity.Role;
 import ru.senla.javacourse.mutovin.messenger.db.entity.User;
 import ru.senla.javacourse.mutovin.messenger.impl.kafka.KafkaProducer;
 import ru.senla.javacourse.mutovin.messenger.impl.mapper.UserMapper;
@@ -37,6 +38,18 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public JwtAuthenticationResponse signUp(SignUpRequest request) {
         User user = userMapper.toEntity(request);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
+        User createUser = userService.create(user);
+        var jwt = jwtService.generateToken(createUser);
+        kafkaProducer.send(request.getEmail(),
+                request.getFirstname() + " " + request.getLastname() + " вы успешно зарегистрировались на нашем сервисе.");
+        return new JwtAuthenticationResponse(createUser.getId(),jwt);
+    }
+
+    @Transactional
+    public JwtAuthenticationResponse adminSignUp(SignUpRequest request) {
+        User user = userMapper.toEntity(request);
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRole(Role.ROLE_ADMIN);
         User createUser = userService.create(user);
         var jwt = jwtService.generateToken(createUser);
         kafkaProducer.send(request.getEmail(),

@@ -31,7 +31,7 @@ mvn clean install
 
 2. Запуск приложения:
 ```bash
-java -jar JavaMessenger.jar
+mvn spring-boot:run -pl messenger-application
 ```
 
 Приложение будет доступно по адресу: http://localhost:8080

@@ -8,14 +8,12 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>messenger-application</artifactId>
-    <version>${project.parent.version}</version>
     <packaging>jar</packaging>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <main-class>ru.senla.javacourse.mutovin.messenger.application.MessengerApplication</main-class>
     </properties>
     <dependencies>
-
         <dependency>
             <groupId>ru.senla.javacourse.mutovin</groupId>
             <artifactId>messenger-impl</artifactId>
@@ -40,6 +38,23 @@
         </dependency>
 
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>ru.senla.javacourse.mutovin.messenger.application.MessengerApplication</mainClass>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>

@@ -1,5 +1,6 @@
 package ru.senla.javacourse.mutovin.messenger.api.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Builder(toBuilder = true)
 public class UserDto implements Serializable {
     private Long id;
     private String username;
@@ -17,6 +19,6 @@ public class UserDto implements Serializable {
     private String email;
     private String phoneNumber;
     private Role role;
-    private List<UserDto> friends = new ArrayList<>();
-    private List<PostDto> posts = new ArrayList<>();
+    private List<UserDto> friends;
+    private List<PostDto> posts;
 }

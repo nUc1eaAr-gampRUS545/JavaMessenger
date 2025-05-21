@@ -10,7 +10,6 @@ import ru.senla.javacourse.mutovin.messenger.impl.repository.ChatParticipantRepo
 import ru.senla.javacourse.mutovin.messenger.impl.service.ChatParticipantService;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor

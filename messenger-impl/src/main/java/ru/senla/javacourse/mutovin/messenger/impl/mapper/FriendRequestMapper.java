@@ -8,7 +8,6 @@ import ru.senla.javacourse.mutovin.messenger.db.entity.FriendRequest;
 
 @Mapper(componentModel = "spring")
 public interface FriendRequestMapper  {
-    FriendRequestMapper INSTANCE = Mappers.getMapper(FriendRequestMapper.class);
 
     @Mapping(target = "id", ignore = true)
     FriendRequestDto map(FriendRequest source);

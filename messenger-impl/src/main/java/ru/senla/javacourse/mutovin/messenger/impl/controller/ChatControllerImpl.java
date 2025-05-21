@@ -31,7 +31,7 @@ public class ChatControllerImpl implements ChatController {
 
     private final ChatService chatService;
     private final UserService userService;
-    private static final Logger logger = LoggerFactory.getLogger(ChatControllerImpl.class);
+    //private static final Logger logger = LoggerFactory.getLogger(ChatControllerImpl.class);
 
     @Operation(summary = "Создать чат", description = "Создает новый групповой чат")
     @ApiResponses({

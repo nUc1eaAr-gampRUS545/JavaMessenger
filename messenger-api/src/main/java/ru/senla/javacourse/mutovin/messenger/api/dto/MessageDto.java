@@ -1,10 +1,12 @@
 package ru.senla.javacourse.mutovin.messenger.api.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 @Data
+@Builder(toBuilder = true)
 public class MessageDto implements Serializable {
 
     private Long id;

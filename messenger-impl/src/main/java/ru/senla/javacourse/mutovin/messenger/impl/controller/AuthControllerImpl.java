@@ -33,6 +33,15 @@ public class AuthControllerImpl implements AuthController {
                 .data(authenticationService.signUp(request)).build());
     }
 
+    @Operation(summary = "Регистрация пользователя")
+    @PostMapping("/admin/sign-up")
+    public ResponseEntity<?> adminSignUp(@RequestBody @Valid SignUpRequest request) {
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(SuccessResponse.builder()
+                .success(true).message("Пользователь успешно создан")
+                .data(authenticationService.adminSignUp(request)).build());
+    }
+
     @Operation(summary = "Авторизация пользователя")
     @PostMapping("/sign-in")
     public ResponseEntity<?> signIn(@RequestBody @Valid SignInRequest request) {

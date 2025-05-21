@@ -8,7 +8,6 @@ import ru.senla.javacourse.mutovin.messenger.db.entity.ChatParticipant;
 
 @Mapper(componentModel = "spring")
 public interface ChatParticipantMapper {
-    ChatParticipantMapper INSTANCE = Mappers.getMapper(ChatParticipantMapper.class);
 
     @Mapping(target = "id", ignore = true)
     ChatParticipantDto map( ChatParticipant source);

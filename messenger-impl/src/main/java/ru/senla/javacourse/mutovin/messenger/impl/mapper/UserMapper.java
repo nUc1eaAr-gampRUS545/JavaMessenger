@@ -12,7 +12,6 @@ import ru.senla.javacourse.mutovin.messenger.db.entity.User;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
     @Mapping(target = "id", ignore = true)
     UserDto map(User source);

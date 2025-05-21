@@ -55,19 +55,4 @@ public class SignUpRequest {
     @Size(min=8,max = 255, message = "Длина пароля должна быть не более 255 символов")
     private String password;
 
-//    public User toEntity(){
-//        User user = User.builder()
-//                .firstname(firstname)
-//                .lastname(lastname)
-//                .phoneNumber(phonenumber)
-//                .username(username)
-//                .email(email)
-//                .age(age)
-//                .gender(Gender.valueOf(gender))
-//                .role(Role.ROLE_USER)
-////                .communities(new HashSet<>())
-//                .build();
-//        return user;
-//    }
-
 }

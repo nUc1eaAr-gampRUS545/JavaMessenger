@@ -51,6 +51,7 @@ public class User implements UserDetails, Serializable {
     @JsonIgnore
     private String password;
 
+    @Setter
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
@@ -79,6 +80,7 @@ public class User implements UserDetails, Serializable {
     public boolean isEnabled() {
         return true;
     }
+
 }
 
 

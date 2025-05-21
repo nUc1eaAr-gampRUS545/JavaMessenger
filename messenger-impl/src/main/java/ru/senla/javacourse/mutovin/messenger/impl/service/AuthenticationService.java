@@ -13,4 +13,6 @@ public interface AuthenticationService {
 
     JwtAuthenticationResponse signIn(SignInRequest request);
 
+    JwtAuthenticationResponse adminSignUp(SignUpRequest request);
+
 }
