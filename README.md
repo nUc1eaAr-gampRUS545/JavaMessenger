@@ -21,7 +21,20 @@ docker-compose up
 docker build -t app .
 ```
 
-3. Запуск непосредственно Java Messenger
+
+3. Удалить миграции:
+
+```bash
+mvn flyway:clean "-Dflyway.url=jdbc:postgresql://localhost:6666/messenger" "-Dflyway.user=postgres" "-Dflyway.password=qwerty" "-Dflyway.schemas=public" "-Dflyway.cleanDisabled=false"
+```
+
+4. Применить миграцию:
+
+```bash
+mvn flyway:migrate "-Dflyway.url=jdbc:postgresql://localhost:6666/messenger" "-Dflyway.user=postgres" "-Dflyway.password=qwerty" "-Dflyway.schemas=public"
+```
+
+5. Запуск непосредственно Java Messenger
 
 Для локального запуска приложения вам потребуется:
 

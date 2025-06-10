@@ -66,7 +66,7 @@ public class AuthenticationServiceTest {
                 .id(1L)
                 .firstname("Johnnj")
                 .lastname("Doemjknj")
-                .phoneNumber("1234567890")
+                .phonenumber("1234567890")
                 .age(20)
                 .gender(Gender.MALE)
                 .username("johndoe")

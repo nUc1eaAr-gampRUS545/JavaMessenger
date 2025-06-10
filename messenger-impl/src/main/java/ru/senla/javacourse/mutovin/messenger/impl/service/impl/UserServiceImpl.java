@@ -85,7 +85,7 @@ public class UserServiceImpl implements UserService {
         user.setAge(request.getAge());
         user.setGender(Gender.valueOf(request.getGender()));
         user.setEmail(request.getEmail());
-        user.setPhoneNumber(request.getPhonenumber());
+        user.setPhonenumber(request.getPhonenumber());
         User result = userRepository.save(user).orElseThrow(
                 () -> new RuntimeException("Не удалось обновить профиль"));
 

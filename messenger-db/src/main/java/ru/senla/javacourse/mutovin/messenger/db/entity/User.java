@@ -44,8 +44,8 @@ public class User implements UserDetails, Serializable {
     @Column(name = "email", nullable = false, length = 35)
     private String email;
 
-    @Column(name = "phoneNumber", nullable = false, length = 18)
-    private String phoneNumber;
+    @Column(name = "phonenumber", nullable = false, length = 18)
+    private String phonenumber;
 
     @Column(name = "password", length = Integer.MAX_VALUE)
     @JsonIgnore

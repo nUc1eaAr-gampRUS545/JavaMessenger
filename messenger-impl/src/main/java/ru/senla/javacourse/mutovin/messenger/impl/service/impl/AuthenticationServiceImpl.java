@@ -37,6 +37,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Transactional
     public JwtAuthenticationResponse signUp(SignUpRequest request) {
         User user = userMapper.toEntity(request);
+        user.setRole(Role.ROLE_USER);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         User createUser = userService.create(user);
         var jwt = jwtService.generateToken(createUser);
