@@ -7,7 +7,7 @@
     <session-factory>
         <!-- JDBC Database connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:6666/messenger</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/messenger</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">qwerty</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>

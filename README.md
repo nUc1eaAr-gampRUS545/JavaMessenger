@@ -25,13 +25,13 @@ docker build -t app .
 3. Удалить миграции:
 
 ```bash
-mvn flyway:clean "-Dflyway.url=jdbc:postgresql://localhost:6666/messenger" "-Dflyway.user=postgres" "-Dflyway.password=qwerty" "-Dflyway.schemas=public" "-Dflyway.cleanDisabled=false"
+mvn flyway:clean "-Dflyway.url=jdbc:postgresql://localhost:5432/messenger" "-Dflyway.user=postgres" "-Dflyway.password=qwerty" "-Dflyway.schemas=public" "-Dflyway.cleanDisabled=false"
 ```
 
 4. Применить миграцию:
 
 ```bash
-mvn flyway:migrate "-Dflyway.url=jdbc:postgresql://localhost:6666/messenger" "-Dflyway.user=postgres" "-Dflyway.password=qwerty" "-Dflyway.schemas=public"
+mvn flyway:migrate "-Dflyway.url=jdbc:postgresql://localhost:5432/messenger" "-Dflyway.user=postgres" "-Dflyway.password=qwerty" "-Dflyway.schemas=public"
 ```
 
 5. Запуск непосредственно Java Messenger
